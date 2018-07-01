@@ -280,6 +280,9 @@ function twentyseventeen_fonts_url() {
 		$font_families = array();
 
 		$font_families[] = 'Libre Franklin:300,300i,400,400i,600,600i,800,800i';
+		$font_families[] = 'Lato:100,300,400,400i,700,900';
+
+		//<link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,400i,700,900&amp;subset=latin-ext" rel="stylesheet">
 
 		$query_args = array(
 			'family' => urlencode( implode( '|', $font_families ) ),

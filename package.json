@@ -7,7 +7,7 @@
     "gulpwatch": "gulp watch",
     "gulpstyles": "gulp styles",
     "gulpscripts": "gulp scripts",
-    "watch:sass": "node-sass app/wp-content/themes/fictional-university/sass/main.scss app/wp-content/themes/fictional-university/css/style.css -w",
+    "watch:sass": "node-sass app/wp-content/themes/twentyseventeen/sass/style.scss app/wp-content/themes/twentyseventeen/style.css -w",
     "devserver": "live-server --open=fictional-university.test",
     "start": "npm-run-all --parallel gulpwatch  watch:sass",
     "compile:sass": "node-sass sass/main.scss css/style.comp.css",
