@@ -1,0 +1,61 @@
+.section{
+    &--padding{
+        padding: 5rem 0;
+    }
+
+    &--specialities{
+        background-color: $color-tertiary-light;
+    }
+
+    &--scenarios{
+        background-color: $color-grey-light-1;
+    }
+
+
+
+    
+    &--book{
+/*        padding: 15rem 0;
+        background-image: linear-gradient(to right bottom, $color-primary-light, $color-primary-dark);
+    
+        @include respond(tab-port) {
+            padding: 10rem 0;
+        }
+            */
+    }
+
+    
+
+
+
+
+
+}
+
+.footer{
+    background-color: $color-grey-dark-3;    
+}
+
+
+
+.book {
+    background: linear-gradient(to right, rgba($color-white, .9), rgba($color-white, .9)); 
+    border-radius: 3px;
+    box-shadow: 0 1.5rem 4rem rgba($color-black, .2);
+
+    &__form {
+        padding: 2rem;
+
+        @include respond(tab-land){
+            width: 65%;
+        }
+
+        @include respond(tab-port){
+            width: 100%;
+        }
+    }
+}
+
+.bg-primary{
+    background-color: $color-primary;
+}

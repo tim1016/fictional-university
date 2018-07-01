@@ -1,0 +1,160 @@
+$blog-card-height : 60rem;
+.card {
+    position: relative;
+    min-height: $blog-card-height;
+    width: 100%;
+    overflow: hidden;
+    background-color: $color-grey-light-2;
+    transition: all 0.3s ease;
+    
+    
+
+
+
+
+    // FRONT SIDE STYLING
+    &__picture {
+        background-size: cover;
+        background-position: center;
+        height: 30rem;
+        font-family: Lato;
+    }
+
+   
+
+
+/*
+    //@include respond(tab-port) {
+    @media only screen and (max-width: 56.25em),
+            only screen and (hover: none) {
+
+        height: auto;
+        border-radius: 3px;
+        background-color: $color-white;
+        box-shadow: 0 1.5rem 4rem rgba($color-black, .15);
+        
+        &__side {
+            height: auto;
+            position: relative;
+            box-shadow: none;
+
+            &--back {
+                transform: rotateY(0);
+                clip-path: polygon(0 15%, 100% 0, 100% 100%, 0% 100%);
+            }
+        }
+    
+        &:hover &__side--front {
+            transform: rotateY(0);
+        }
+
+    
+        &__details {
+            padding: 1rem 3rem;
+        }
+
+        // FRONT SIDE STYLING
+        &__cta {
+            position: relative;
+            top: 0%;
+            left: 0;
+            transform: translate(0);
+            width: 100%;
+            padding: 7rem 4rem 4rem 4rem;
+        }
+
+        &__price-box {
+            margin-bottom: 3rem;
+        }
+
+        &__price-value {
+            font-size: 4rem;
+        }
+    }
+*/
+}
+
+.post-title{
+    //width: 100%;
+    display: block;
+    height: 100%;
+    position: relative;
+    top: 0;
+    left: 0;
+    text-align: center;
+    &__text{
+        display: block;
+        width: 90%;
+        background-color: rgba($color: $color-primary, $alpha: 0.75);
+        padding: $padding-large-x $padding-large-x;
+        color: $color-white;
+        font-size: $default-font-size*1.5;
+        //line-height: 1.4;
+        @include absCenter;
+    }
+}
+
+.post-category{
+    background-color: $nblack;
+    font-size: $default-font-size;
+    
+    position: absolute;
+    top: 0;
+    right: 0;
+    p{
+        float: left;
+        display: inline;
+    }
+
+    ul{
+        list-style: none;
+
+    }
+    li{
+        float: right;
+        padding: $padding-small-y $padding-small-x;
+        border-bottom: 0.1rem solid white;
+        border-left: 0.1rem solid white;            
+    };
+    a{
+        text-decoration: none;
+        color: $color-white;
+        font-weight: 400;
+    }
+
+
+}
+
+
+
+
+.post-author{
+    display: block;
+    background-color: $color-primary;
+    color: $color-white;
+    font-size: $default-font-size;
+    padding: $padding-small-y $padding-small-x;
+
+    a{
+        text-decoration: none;
+        color: white;
+    }
+}
+
+
+.post-excerpt{
+    display: block;
+
+    font-size: $default-font-size;
+    padding: $padding-small-y $padding-small-x;
+}
+
+.read-more{
+    position: absolute;
+    bottom: .5rem;
+    right: 0.5rem;
+}
+
+.card:hover{
+    transform: translateY(-0.2rem) scale(1.02);
+}

@@ -1,0 +1,30 @@
+/* Customize Login Screen */
+body.login .button-primary {
+    background-color: $color-tertiary-light;
+    border-color: color($color-primary b(+10%));
+    box-shadow: 0 .1rem 0 color($color-primary b(+20%));
+}
+
+body.login .button-primary:hover,
+body.login .button-primary:active,
+body.login .button-primary:focus {
+    background-color: $color-primary-dark;
+    border-color: $color-primary-dark;
+    box-shadow: 0 0.1rem 0 $color-primary-dark;
+}
+
+body.login {
+    background-color: $color-tertiary-light;
+}
+
+.login h1 a {
+    color: $color-primary-dark;
+    font-size: 3.5rem;
+    font-weight: 300;
+    background-image: none;
+    width: auto;
+    height: auto;   
+    text-indent: 0;
+    background: url(/img/sprite.svg#newresonance);
+    background-size: 100px 82px;
+}

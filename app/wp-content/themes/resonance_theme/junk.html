@@ -1,0 +1,20 @@
+<div class="row">
+    <div class="col-1-of-3">
+        <h2 class="search-overlay__section-title">General Information</h2>
+        ${combinedResults.length ? '<ul class="link-list min-list">' : '<p> No General information found </p>'}
+            ${combinedResults.map(item => `<li>
+                                                <a href="${item.link}">${item.title.rendered}</a>
+                                                ${item.type == 'post' ? `by ${item.authorName}` : ''}
+                                                </li>`).join('')}
+            ${combinedResults.length ? '</ul>' : ''}
+    </div>
+    <div class="col-1-of-3">
+        <h2 class="search-overlay__section-title">Programs</h2>
+        <h2 class="search-overlay__section-title">Professors</h2>
+
+    </div>
+    <div class="col-1-of-3">
+        <h2 class="search-overlay__section-title">Campuses</h2>
+        <h2 class="search-overlay__section-title">Events</h2>
+    </div>
+</div>  

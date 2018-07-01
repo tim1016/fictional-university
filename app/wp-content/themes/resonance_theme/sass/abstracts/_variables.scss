@@ -1,0 +1,101 @@
+// COLORS
+$indigo:#30415d;
+$indigo-light: lighten($indigo, 30%);
+$indigo-dark: darken($indigo, 30%);
+$indigo70l: lighten($indigo, 70%);
+
+$color-primary:#30415d;
+$color-primary-light: #4A5B77;
+$color-primary-dark: #172844;
+
+
+
+$crimson: #cf6766;
+$crimson-light: #E98180;
+$crimson-dark: #B64E4D;
+
+$color-secondary: #cf6766;
+$color-secondary-light: #E98180;
+$color-secondary-dark: #B64E4D;
+
+$blue: #8eaebd;
+$blue-light: lighten($blue, 20%);   
+$blue-dark: darken($blue, 30%);
+
+$color-tertiary: $blue;
+$color-tertiary-light: $blue-light;
+$color-tertiary-dark: $blue-dark;
+
+
+
+$nblack: #301424;
+$nblack-light: lighten($nblack, 10%);
+$nblack-dark: darken($nblack, 10%);
+
+$color4: $nblack;
+$color4-light: $nblack-light;
+$color4-dark: $nblack-dark;
+
+
+$color-grey-light-1: #f7f7f7;
+$color-grey-light-2: #eee;
+
+$color-grey-dark: #777;
+$color-grey-dark-2: #999;
+$color-grey-dark-3: #333;
+
+$color-white: #fff;
+$color-black: #000;
+$color-black-transparent : rgba(black,0.6);
+
+
+// FONT
+$default-font-size: 1.6rem;
+
+
+// GRID
+$grid-width: 114rem;
+$gutter-vertical: 8rem;
+$gutter-vertical-small: 6rem;
+$gutter-horizontal: 6rem;
+
+$form-gutter-vertical: 2rem;
+$form-gutter-vertical-small: 2rem;
+$form-gutter-horizontal: 1rem;
+$form-padding: 1.5rem;
+
+
+$content-width: $grid-width;
+$breakpoint: 49em;
+$nav-height: 7rem;
+$nav-background: $color-primary;
+$nav-opacity: 1.0;
+$nav-font-color: #ffffff;
+$link-hover-color: $color-primary-light;
+
+
+$side-nav-background: $color-tertiary-light;
+$side-nav-opacity: 1.0;
+$side-nav-font-color: $color-primary;
+$link-hover-color: $color-secondary;
+
+
+
+$padding-base-y:     6em /14  !default;
+$padding-base-x:   12em / 14  !default;
+
+$padding-large-y:    10em  / 14!default;
+$padding-large-x:  16em / 14  !default;
+
+$padding-small-y:    5em / 14 !default;
+$padding-small-x:  10em / 14   !default;
+
+$padding-xs-y:       1em / 14   !default;
+$padding-xs-x:     5em / 14  !default;
+
+$banner-height: 50vh;
+$banner-height-small: 30vh;
+
+
+
+//

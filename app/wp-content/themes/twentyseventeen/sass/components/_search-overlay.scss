@@ -1,0 +1,158 @@
+.search-overlay {
+    overflow-y: auto;
+    overflow-x: hidden;
+    z-index: 110;
+    position: fixed;
+    top: $nav-height; 
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(255, 255, 255, .96); 
+    visibility: hidden;
+    opacity: 0;
+    transform: scale(1.09);
+    transition: opacity .3s, transform .3s, visibility .3s;
+    box-sizing: border-box;
+
+    p {
+        padding-top: 1.5rem;
+    }
+
+    .event-summary p {
+        padding-top: 0;
+    }
+
+    .event-summary {
+        margin-bottom: 0;
+        margin-top: 2rem;
+    }
+
+    body.admin-bar & {
+        top: 3.2rem;
+    }
+
+    &__top {
+        background-color: rgba(0, 0, 0, .12);
+    }
+
+    &__icon {
+        margin: 0 1rem;
+        font-size: 2.5rem;
+        color: $color-secondary;
+        @include respond(tab-land) {
+            font-size: 1.8rem;
+        }
+    }
+
+    &--active {
+        visibility: visible;
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    &__section-title {
+        margin: 3rem 0 .1rem 0;
+        font-weight: 400;
+        color: $color-primary;
+        font-size: 2rem;
+        padding: 1.5rem 0;
+        border-bottom: .1rem solid #CCC;
+    }
+
+    &__close {
+        position: absolute;
+        top: 2rem;
+        right: .2rem;
+        font-size: 2.8rem;
+        cursor: pointer;
+        transition: all .3s;
+        background-color: #FFF;
+        color: $color-secondary;
+        line-height: .7;
+
+        @include respond(tab-land) {
+            top: 1.8rem;
+            font-size: 2.1rem;
+        }
+
+        @include respond(phone) {
+            top: 1.3rem;
+            font-size: 2.1rem;
+        }
+    }
+
+    &__close:hover {
+        opacity: 1;
+    }
+
+    .one-half {
+        padding-bottom: 0;
+    }
+}
+
+.search-term {
+    width: 80%;
+    box-sizing: border-box;
+    border: none;
+    padding: 1.5rem 0;
+    margin: 0;
+    background-color: transparent;
+    font-size: 3rem;
+    font-weight: 300;
+    outline: none;
+    color: $color-secondary;
+
+    @include respond(tab-land) {
+        width: 75%;
+        font-size: 1.5rem;
+    }
+
+    @include respond(tab-port) {
+        font-size: 1.5rem
+    }
+
+    &::placeholder{
+        color: rgba($color-secondary, 0.3);
+        font-weight: 100;
+    }
+    
+
+}
+
+.body-no-scroll {
+    overflow: hidden;
+}
+
+
+.search-trigger {
+    display: inline-block; 
+	color: #FFF;
+	position: relative;
+	cursor: pointer;
+	//top: 1.9rem;
+	//margin-left: 2rem;
+	@include respond(tab-land){
+		display: inline-block;
+		top: .1rem;
+	}
+}
+
+.search-trigger:hover {
+	opacity: .65;
+}
+
+.container{
+    position:relative;
+}
+
+.spinner-loader {
+    margin: 4.5rem auto;
+    border-radius: 50%;
+    width: 6rem;
+    height: 6rem;
+    border: 1rem solid rgba(0, 0, 0, 0.2);
+    border-top-color: black;
+    -webkit-animation: spin 1s infinite linear;
+    animation: spin 1s infinite linear;
+}
+  

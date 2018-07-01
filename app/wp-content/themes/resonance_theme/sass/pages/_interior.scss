@@ -1,0 +1,51 @@
+.side-nav {
+    float: right;
+    display: block;
+    width: 100%;
+    background-color: red;
+	ul {
+
+		font-size: $default-font-size;
+		list-style: none;
+		z-index: 200;
+		@include mp0;
+	  li {
+		  //float: left;
+		  position: relative;
+          z-index: 200;
+          
+          background: rgba($side-nav-background, $side-nav-opacity); 
+          border: 0.1rem solid $color-secondary;
+			a {
+				display: block;
+				padding: 0 2rem;
+				color: $side-nav-font-color;
+                text-decoration: none;
+
+				&:hover, &:active {
+					background: $link-hover-color;
+                    color: $color-white;
+                    
+
+				}
+				&:not(:only-child):after {
+					padding-left: .4rem; 
+					content: ' ▾';
+				} 
+			} // Dropdown list
+			ul li {
+				min-width: 19rem;
+				z-index: 200;
+
+				a {
+					background: linear-gradient(to bottom, $color-primary-light, $color-primary-dark);
+					padding: .5rem 1rem;
+					line-height: 20px;
+					animation: slideMenu .5s ease-out;
+					animation-fill-mode: both;
+					z-index: inherit;
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,25 @@
+.generic-text{
+
+    p{
+        font-weight: 300;
+        line-height: 1.6;
+        font-size: 1.6rem;
+        color: $color-grey-dark-3;
+    }
+    &--strong p{
+        font-weight: 500;
+    }
+
+    &--justified-content p{
+        text-align: justify;
+        text-justify: inter-word;
+    }
+    &--white p{
+        color: $color-white;
+    }
+
+
+ 
+    
+    
+}

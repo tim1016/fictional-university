@@ -1,0 +1,9 @@
+.header{
+    &__navigation{
+        //height: $nav-height;
+        background: $nav-background;//rgba($nav-background, $nav-opacity);
+        font-size: $default-font-size;
+        z-index: 20; 
+    }
+
+}

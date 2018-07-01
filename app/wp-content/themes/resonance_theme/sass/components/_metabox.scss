@@ -1,0 +1,53 @@
+.metabox {
+    background-color: $color-tertiary-light;
+    border-radius: .3rem;
+    padding: $padding-base-y $padding-base-x;
+    display: inline-block;
+    margin-bottom: 2rem;
+    @include lightShadow;
+
+    &--position-up {
+        position: relative;
+        top: 0;
+        transform: translateY(-50%);
+    }
+
+    &--with-home-link {
+        padding: 0;
+    }
+
+    &__main {
+        padding: 1rem 1.5rem 1rem 1.1rem;
+    }
+
+    p {
+        margin: 0;
+        font-size: $default-font-size;
+        color: $color-primary;
+    }
+
+    a {
+        color: $color-primary;
+        text-decoration: none;
+        font-weight: bold;
+    }
+
+    a:hover {
+        text-decoration: underline;
+    }
+
+    & &__blog-home-link {
+        background-color: $color-secondary-dark;
+        color: #FFF;
+        display: inline-block;
+        padding: $padding-base-y $padding-base-x;
+        border-radius: .3rem;
+        font-weight: normal;
+    }
+
+    & &__blog-home-link:hover {
+        text-decoration: none;
+        background-color: $color-secondary;
+    }
+    
+}

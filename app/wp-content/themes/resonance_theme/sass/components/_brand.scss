@@ -1,0 +1,49 @@
+
+.brand {
+	//width: 18rem;
+	display: table-cell;
+	vertical-align: middle;
+    //background-color: $color-primary-dark;
+   // padding: 0.5rem;
+	position: absolute;
+	text-align: center;
+
+    /*
+	position: absolute; 
+	padding-left: 2rem;
+	float: left; 
+	line-height: $nav-height;
+	text-transform: uppercase;
+	font-size: $default-font-size; */
+	a,
+	a:visited {
+	  color: $nav-font-color;
+	  text-decoration: none;
+    }
+    
+    &__img{
+		//display: flex;
+        width : 10rem;
+        height : 5rem;
+		fill: #fff;
+		display: block;
+		//float: left;
+		padding-right: 1rem;
+		margin: 0 auto;
+
+    }
+
+    &__text{
+		//display: flex;
+		display: block;
+		//float:left;
+        font-size: 2.0rem;
+        line-height: 0.5;
+        color: #fff;
+        font-weight: 200;
+        padding: 0;
+        margin: 0;
+    }
+
+
+}

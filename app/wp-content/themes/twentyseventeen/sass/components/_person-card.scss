@@ -1,0 +1,53 @@
+.person-cards {
+    margin: 0;
+    padding: 0;
+
+    .search-overlay & {
+        padding-top: 2.1rem;
+    }
+}
+
+.person-card {
+    position: relative;
+    display: inline-block;
+    width: 20rem;
+    margin-right: 1.5rem;
+    background-color: $color-tertiary;
+    overflow: hidden;
+    text-align: center;
+
+    .search-overlay & {
+        width: 18rem;
+    }
+
+    &__image {
+        display: block;
+        transition: opacity .3s ease-out, transform .3s ease-out;
+    }
+
+    &:hover &__image {
+        opacity: .80;
+        transform: scale(1.1) rotate(4deg);
+    }
+
+    &__name {
+        font-weight: 400;
+        font-size: $default-font-size;       
+        position: absolute;
+        bottom: 0;
+        color: #FFF;
+        left: 0;
+        right: 0;
+        padding: .3rem .1rem;
+        background-color: $color-secondary;
+    }
+
+    &:hover &__name {
+        background-color: $color-secondary;
+    }
+
+    &__list-item {
+        display: inline-block;
+        list-style: none;
+    }
+}

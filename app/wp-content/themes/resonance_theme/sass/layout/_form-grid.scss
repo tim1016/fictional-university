@@ -1,0 +1,58 @@
+.form-row {
+    max-width: 100%;
+    margin: 0 auto;
+
+    &:not(:last-of-type) {
+        margin-bottom: $form-gutter-vertical;
+        @include respond(tab-port) {
+            margin-bottom: $form-gutter-vertical-small;
+        }
+    }    
+    @include respond(tab-port) {
+        width: 100% !important;  
+        padding: 0 $form-gutter-horizontal;
+    }
+    @include clearfix;
+
+
+
+
+    [class^="form-col-"] {
+        float: left;
+        &:not(:last-of-type) {
+            margin-right: $form-gutter-horizontal;
+            @include respond(tab-port) {
+                margin-right: 0;
+                margin-bottom: $form-gutter-vertical-small;
+            }
+        }
+        @include respond(tab-port) {
+            width: 100% !important;
+        }
+    }
+
+    
+    .form-col-1-of-2 {
+        width: calc((100% - #{$form-gutter-horizontal}) / 2);
+    }
+
+    .form-col-1-of-3 {
+        width: calc((100% - 2 * #{$form-gutter-horizontal}) / 3);
+    }
+
+    .form-col-2-of-3 {
+        width: calc(2 * ((100% - 2 * #{$form-gutter-horizontal}) / 3) + #{$form-gutter-horizontal});
+    }
+
+    .form-col-1-of-4 {
+        width: calc((100% - 3 * #{$form-gutter-horizontal}) / 4);
+    }
+
+    .form-col-2-of-4 {
+        width: calc(2 * ((100% - 3 * #{$form-gutter-horizontal}) / 4) + #{$form-gutter-horizontal});
+    }
+
+    .form-col-3-of-4 {
+        width: calc(3 * ((100% - 3 * #{$form-gutter-horizontal}) / 4) + 2 * #{$form-gutter-horizontal});
+    }
+}
