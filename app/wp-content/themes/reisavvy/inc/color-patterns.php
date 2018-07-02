@@ -3,7 +3,7 @@
  * REIsavvy: Color Patterns
  *
  * @package WordPress
- * @subpackage Twenty_Seventeen
+ * @subpackage reisavvy
  * @since 1.0
  */
 

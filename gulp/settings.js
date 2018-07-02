@@ -6,7 +6,7 @@ var Project = {
       rootFolder   :   path.resolve(__dirname, '..'),
       projectDir   :   `${docRoot}/${projectName}`,
       wpContent    :   `${docRoot}/${projectName}/wp-content`,
-      themeLocation:   `${docRoot}/${projectName}/wp-content/themes/twentyseventeen`,
+      themeLocation:   `${docRoot}/${projectName}/wp-content/themes/reisavvy`,
       urlToPreview :   'http://fictional-university.test',
 }
 
