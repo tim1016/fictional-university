@@ -15,7 +15,7 @@ if ( ! function_exists( 'twentyseventeen_posted_on' ) ) :
 	 */
 	function twentyseventeen_posted_on() {
 
-		// Get the author name; wrap it in a link.
+		// Get the author name; row it in a link.
 		$byline = sprintf(
 			/* translators: %s: post author */
 			__( 'by %s', 'twentyseventeen' ),

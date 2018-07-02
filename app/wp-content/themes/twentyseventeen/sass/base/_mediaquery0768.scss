@@ -12,7 +12,7 @@
     }
   }
   /* Layout */
-  .wrap {
+  .row {
     max-width: 1000px;
     padding-left: 3em;
     padding-right: 3em;
@@ -106,7 +106,7 @@
     right: 0;
     width: 100%;
     z-index: 3;
-    .wrap {
+    .row {
       max-width: 1000px;
       /* The font size is 14px here and we need 50px padding in ems */
       padding: 0.75em 3.4166666666667em;
@@ -386,7 +386,7 @@
       }
     }
   }
-  .panel-content .wrap {
+  .panel-content .row {
     padding-bottom: 4.5em;
     padding-top: 6em;
   }

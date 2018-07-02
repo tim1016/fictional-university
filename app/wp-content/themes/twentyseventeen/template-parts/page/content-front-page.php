@@ -26,7 +26,7 @@
 	<?php endif; ?>
 
 	<div class="panel-content">
-		<div class="wrap">
+		<div class="row">
 			<header class="entry-header">
 				<?php the_title( '<h2 class="entry-title">', '</h2>' ); ?>
 
@@ -46,7 +46,7 @@
 				?>
 			</div><!-- .entry-content -->
 
-		</div><!-- .wrap -->
+		</div><!-- .row -->
 	</div><!-- .panel-content -->
 
 </article><!-- #post-## -->

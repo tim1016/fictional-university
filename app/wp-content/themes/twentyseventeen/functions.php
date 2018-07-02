@@ -409,7 +409,7 @@ add_action( 'wp_head', 'twentyseventeen_pingback_header' );
 /**
  * Display custom color CSS.
  */
-function twentyseventeen_colors_css_wrap() {
+function twentyseventeen_colors_css_row() {
 	if ( 'custom' !== get_theme_mod( 'colorscheme' ) && ! is_customize_preview() ) {
 		return;
 	}
@@ -427,7 +427,7 @@ function twentyseventeen_colors_css_wrap() {
 	</style>
 <?php
 }
-add_action( 'wp_head', 'twentyseventeen_colors_css_wrap' );
+add_action( 'wp_head', 'twentyseventeen_colors_css_row' );
 
 /**
  * Enqueue scripts and styles.

@@ -191,7 +191,7 @@ template, [hidden] {
   overflow: hidden;
   position: absolute !important;
   width: 1px;
-  word-wrap: normal !important;
+  word-row: normal !important;
   /* Many screen reader and browser combinations announce broken words as they would appear visually. */ }
   .screen-reader-text:focus {
     background-color: #f1f1f1;
@@ -1057,7 +1057,7 @@ a:hover .nav-title {
   font-size: 16px;
   font-size: 1rem;
   position: relative; }
-  .navigation-top .wrap {
+  .navigation-top .row {
     max-width: 1000px;
     padding: 0; }
   .navigation-top a {
@@ -1211,15 +1211,15 @@ body {
 
 #page {
   position: relative;
-  word-wrap: break-word; }
+  word-row: break-word; }
 
-.wrap {
+.row {
   margin-left: auto;
   margin-right: auto;
   max-width: 700px;
   padding-left: 2em;
   padding-right: 2em; }
-  .wrap:after {
+  .row:after {
     clear: both;
     content: "";
     display: block; }
@@ -1227,7 +1227,7 @@ body {
 /*--------------------------------------------------------------
 13.1 Header
 --------------------------------------------------------------*/
-#masthead .wrap {
+#masthead .row {
   position: relative; }
 
 .site-header {
@@ -1487,7 +1487,7 @@ body:not(.has-header-image):not(.has-header-video) .custom-header-media {
 
 .panel-content {
   position: relative; }
-  .panel-content .wrap {
+  .panel-content .row {
     padding-bottom: 0.5em;
     padding-top: 1.75em; }
 
@@ -1864,7 +1864,7 @@ body:not(.twentyseventeen-front-page) .entry-header {
 --------------------------------------------------------------*/
 .site-footer {
   border-top: 1px solid #eee; }
-  .site-footer .wrap {
+  .site-footer .row {
     padding-bottom: 1.5em;
     padding-top: 2em; }
   .site-footer .widget-area {
@@ -2087,7 +2087,7 @@ h2.widget-title {
 
 /* Text widget */
 .widget_text {
-  word-wrap: break-word; }
+  word-row: break-word; }
   .widget_text ul {
     list-style: disc;
     margin: 0 0 1.5em 1.5em; }
@@ -2198,7 +2198,7 @@ h2.widget-title {
   position: relative;
   transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out, color 0.3s ease-in-out;
   width: auto;
-  word-wrap: break-word;
+  word-row: break-word;
   z-index: 0; }
 
 .wp_widget_tag_cloud a {
@@ -2209,7 +2209,7 @@ h2.widget-title {
   position: relative;
   transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out, color 0.3s ease-in-out;
   width: auto;
-  word-wrap: break-word;
+  word-row: break-word;
   z-index: 0; }
 
 .widget .tagcloud a:hover, .widget .tagcloud a:focus {
@@ -2592,10 +2592,10 @@ p > embed:only-child, p > iframe:only-child, p > object:only-child {
   .site-branding {
     padding: 3em 0; }
   /* Front Page */
-  .panel-content .wrap {
+  .panel-content .row {
     padding-bottom: 2em;
     padding-top: 3.5em; }
-  .page-one-column .panel-content .wrap {
+  .page-one-column .panel-content .row {
     max-width: 740px; }
   .panel-content .entry-header {
     margin-bottom: 4.5em; }
@@ -2630,7 +2630,7 @@ p > embed:only-child, p > iframe:only-child, p > object:only-child {
     font-size: 13px;
     font-size: 0.8125rem; }
   /* Layout */
-  .wrap {
+  .row {
     max-width: 1000px;
     padding-left: 3em;
     padding-right: 3em; }
@@ -2697,7 +2697,7 @@ p > embed:only-child, p > iframe:only-child, p > object:only-child {
     right: 0;
     width: 100%;
     z-index: 3; }
-    .navigation-top .wrap {
+    .navigation-top .row {
       max-width: 1000px;
       /* The font size is 14px here and we need 50px padding in ems */
       padding: 0.75em 3.4166666666667em; }
@@ -2871,7 +2871,7 @@ p > embed:only-child, p > iframe:only-child, p > object:only-child {
     height: calc(100vh - 32px); }
   .admin-bar.home.blog.has-header-image .custom-header-media, .admin-bar.home.blog.has-header-video .custom-header-media {
     height: calc(100vh - 32px); }
-  .panel-content .wrap {
+  .panel-content .row {
     padding-bottom: 4.5em;
     padding-top: 6em; }
   .panel-image {
@@ -3074,7 +3074,7 @@ p > embed:only-child, p > iframe:only-child, p > object:only-child {
 
 @media screen and (min-width: 67em) {
   /* Navigation */
-  .navigation-top .wrap {
+  .navigation-top .row {
     padding: 0.75em 2em; }
   .navigation-top nav {
     margin-left: 0; }
@@ -3167,7 +3167,7 @@ p > embed:only-child, p > iframe:only-child, p > object:only-child {
   body.page:not(.twentyseventeen-front-page) .entry-title {
     font-size: 10pt; }
   /* Layout */
-  .wrap {
+  .row {
     padding-left: 5% !important;
     padding-right: 5% !important;
     max-width: none; }

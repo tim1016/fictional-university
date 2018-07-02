@@ -365,7 +365,7 @@ body {
 
 .scenario-container {
   display: flex;
-  flex-wrap: wrap;
+  flex-row: row;
   justify-content: space-around;
   background-color: #f7f7f7;
   color: #30415d; }

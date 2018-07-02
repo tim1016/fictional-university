@@ -17,7 +17,7 @@
 		</div><!-- #content -->
 
 		<footer id="colophon" class="site-footer" role="contentinfo">
-			<div class="wrap">
+			<div class="row">
 				<?php
 				get_template_part( 'template-parts/footer/footer', 'widgets' );
 
@@ -41,7 +41,7 @@
 
 				get_template_part( 'template-parts/footer/site', 'info' );
 				?>
-			</div><!-- .wrap -->
+			</div><!-- .row -->
 		</footer><!-- #colophon -->
 	</div><!-- .site-content-contain -->
 </div><!-- #page -->

@@ -6,7 +6,7 @@
 		$customHeader = $body.find( '.custom-header' ),
 		$branding = $customHeader.find( '.site-branding' ),
 		$navigation = $body.find( '.navigation-top' ),
-		$navWrap = $navigation.find( '.wrap' ),
+		$navWrap = $navigation.find( '.row' ),
 		$navMenuItem = $navigation.find( '.menu-item' ),
 		$menuToggle = $navigation.find( '.menu-toggle' ),
 		$menuScrollDown = $body.find( '.menu-scroll-down' ),

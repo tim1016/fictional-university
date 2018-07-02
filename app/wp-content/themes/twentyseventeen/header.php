@@ -32,9 +32,9 @@
 
 		<?php if ( has_nav_menu( 'top' ) ) : ?>
 			<div class="navigation-top">
-				<div class="wrap">
+				<div class="row">
 					<?php get_template_part( 'template-parts/navigation/navigation', 'top' ); ?>
-				</div><!-- .wrap -->
+				</div><!-- .row -->
 			</div><!-- .navigation-top -->
 		<?php endif; ?>
 
