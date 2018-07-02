@@ -1,5 +1,6 @@
 @import "variables";
 @import "normalize";
+@import "mixins";  
 @import "accessibility";
 @import "alignments";
 @import "clearings";
@@ -24,12 +25,13 @@
 @import "gallery";
 @import "customizer";
 @import "svg-fallback";
-/*
+
+
 @import "mediaquery0320";
 @import "mediaquery0480";
 @import "mediaquery0768";
 @import "mediaquery1072";
 @import "mediaquery1264";
 @import "mediaquery0768-0782";
-*/
+
 @import "print";
