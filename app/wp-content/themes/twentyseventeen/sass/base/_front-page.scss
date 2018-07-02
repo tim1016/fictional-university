@@ -2,11 +2,11 @@
 13.2 Front Page
 --------------------------------------------------------------*/
 
-.twentyseventeen-front-page .site-content {
+.reisavvy-front-page .site-content {
   padding: 0;
 }
 
-.twentyseventeen-panel {
+.reisavvy-panel {
   overflow: hidden;
   position: relative;
 }
@@ -36,7 +36,7 @@
   }
 }
 
-.twentyseventeen-front-page article:not(.has-post-thumbnail):not(:first-child) {
+.reisavvy-front-page article:not(.has-post-thumbnail):not(:first-child) {
   border-top: 1px solid $silver3;
 }
 
@@ -50,7 +50,7 @@
 
 /* Panel edit link */
 
-.twentyseventeen-panel {
+.reisavvy-panel {
   .edit-link {
     display: block;
     margin: 0.3em 0 0;
@@ -63,7 +63,7 @@
 
 /* Front Page - Recent Posts */
 
-.twentyseventeen-front-page .panel-content .recent-posts article {
+.reisavvy-front-page .panel-content .recent-posts article {
   border: 0;
   color: $black3;
   margin-bottom: 3em;
@@ -81,7 +81,7 @@
   text-transform: none;
 }
 
-.twentyseventeen-panel .recent-posts .entry-header .edit-link {
+.reisavvy-panel .recent-posts .entry-header .edit-link {
   color: $black2;
   display: inline-block;
   font-size: 11px;

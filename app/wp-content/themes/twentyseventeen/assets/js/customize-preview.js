@@ -15,7 +15,7 @@
 		wp.customize.preview.bind( 'section-highlight', function( data ) {
 
 			// Only on the front page.
-			if ( ! $( 'body' ).hasClass( 'twentyseventeen-front-page' ) ) {
+			if ( ! $( 'body' ).hasClass( 'reisavvy-front-page' ) ) {
 				return;
 			}
 
@@ -64,7 +64,7 @@
 
 				// Check if the text color has been removed and use default colors in theme stylesheet.
 				if ( ! to.length ) {
-					$( '#twentyseventeen-custom-header-styles' ).remove();
+					$( '#reisavvy-custom-header-styles' ).remove();
 				}
 				$( '.site-title, .site-description' ).css({
 					clip: 'auto',

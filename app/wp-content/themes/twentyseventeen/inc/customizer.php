@@ -1,6 +1,6 @@
 <?php
 /**
- * Twenty Seventeen: Customizer
+ * REIsavvy: Customizer
  *
  * @package WordPress
  * @subpackage Twenty_Seventeen
@@ -52,11 +52,11 @@ function reisavvy_customize_register( $wp_customize ) {
 	$wp_customize->add_control(
 		'colorscheme', array(
 			'type'     => 'radio',
-			'label'    => __( 'Color Scheme', 'twentyseventeen' ),
+			'label'    => __( 'Color Scheme', 'reisavvy' ),
 			'choices'  => array(
-				'light'  => __( 'Light', 'twentyseventeen' ),
-				'dark'   => __( 'Dark', 'twentyseventeen' ),
-				'custom' => __( 'Custom', 'twentyseventeen' ),
+				'light'  => __( 'Light', 'reisavvy' ),
+				'dark'   => __( 'Dark', 'reisavvy' ),
+				'custom' => __( 'Custom', 'reisavvy' ),
 			),
 			'section'  => 'colors',
 			'priority' => 5,
@@ -78,7 +78,7 @@ function reisavvy_customize_register( $wp_customize ) {
 	 */
 	$wp_customize->add_section(
 		'theme_options', array(
-			'title'    => __( 'Theme Options', 'twentyseventeen' ),
+			'title'    => __( 'Theme Options', 'reisavvy' ),
 			'priority' => 130, // Before Additional CSS.
 		)
 	);
@@ -93,22 +93,22 @@ function reisavvy_customize_register( $wp_customize ) {
 
 	$wp_customize->add_control(
 		'page_layout', array(
-			'label'           => __( 'Page Layout', 'twentyseventeen' ),
+			'label'           => __( 'Page Layout', 'reisavvy' ),
 			'section'         => 'theme_options',
 			'type'            => 'radio',
-			'description'     => __( 'When the two-column layout is assigned, the page title is in one column and content is in the other.', 'twentyseventeen' ),
+			'description'     => __( 'When the two-column layout is assigned, the page title is in one column and content is in the other.', 'reisavvy' ),
 			'choices'         => array(
-				'one-column' => __( 'One Column', 'twentyseventeen' ),
-				'two-column' => __( 'Two Column', 'twentyseventeen' ),
+				'one-column' => __( 'One Column', 'reisavvy' ),
+				'two-column' => __( 'Two Column', 'reisavvy' ),
 			),
 			'active_callback' => 'reisavvy_is_view_with_layout_option',
 		)
 	);
 
 	/**
-	 * Filter number of front page sections in Twenty Seventeen.
+	 * Filter number of front page sections in REIsavvy.
 	 *
-	 * @since Twenty Seventeen 1.0
+	 * @since REIsavvy 1.0
 	 *
 	 * @param int $num_sections Number of front page sections.
 	 */
@@ -127,8 +127,8 @@ function reisavvy_customize_register( $wp_customize ) {
 		$wp_customize->add_control(
 			'panel_' . $i, array(
 				/* translators: %d is the front page section number */
-				'label'           => sprintf( __( 'Front Page Section %d Content', 'twentyseventeen' ), $i ),
-				'description'     => ( 1 !== $i ? '' : __( 'Select pages to feature in each area from the dropdowns. Add an image to a section by setting a featured image in the page editor. Empty sections will not be displayed.', 'twentyseventeen' ) ),
+				'label'           => sprintf( __( 'Front Page Section %d Content', 'reisavvy' ), $i ),
+				'description'     => ( 1 !== $i ? '' : __( 'Select pages to feature in each area from the dropdowns. Add an image to a section by setting a featured image in the page editor. Empty sections will not be displayed.', 'reisavvy' ) ),
 				'section'         => 'theme_options',
 				'type'            => 'dropdown-pages',
 				'allow_addition'  => true,
@@ -154,8 +154,8 @@ add_action( 'customize_register', 'reisavvy_customize_register' );
  */
 function reisavvy_sanitize_page_layout( $input ) {
 	$valid = array(
-		'one-column' => __( 'One Column', 'twentyseventeen' ),
-		'two-column' => __( 'Two Column', 'twentyseventeen' ),
+		'one-column' => __( 'One Column', 'reisavvy' ),
+		'two-column' => __( 'Two Column', 'reisavvy' ),
 	);
 
 	if ( array_key_exists( $input, $valid ) ) {
@@ -183,7 +183,7 @@ function reisavvy_sanitize_colorscheme( $input ) {
 /**
  * Render the site title for the selective refresh partial.
  *
- * @since Twenty Seventeen 1.0
+ * @since REIsavvy 1.0
  * @see reisavvy_customize_register()
  *
  * @return void
@@ -195,7 +195,7 @@ function reisavvy_customize_partial_blogname() {
 /**
  * Render the site tagline for the selective refresh partial.
  *
- * @since Twenty Seventeen 1.0
+ * @since REIsavvy 1.0
  * @see reisavvy_customize_register()
  *
  * @return void
@@ -223,7 +223,7 @@ function reisavvy_is_view_with_layout_option() {
  * Bind JS handlers to instantly live-preview changes.
  */
 function reisavvy_customize_preview_js() {
-	wp_enqueue_script( 'twentyseventeen-customize-preview', get_theme_file_uri( '/assets/js/customize-preview.js' ), array( 'customize-preview' ), '1.0', true );
+	wp_enqueue_script( 'reisavvy-customize-preview', get_theme_file_uri( '/assets/js/customize-preview.js' ), array( 'customize-preview' ), '1.0', true );
 }
 add_action( 'customize_preview_init', 'reisavvy_customize_preview_js' );
 
@@ -231,6 +231,6 @@ add_action( 'customize_preview_init', 'reisavvy_customize_preview_js' );
  * Load dynamic logic for the customizer controls area.
  */
 function reisavvy_panels_js() {
-	wp_enqueue_script( 'twentyseventeen-customize-controls', get_theme_file_uri( '/assets/js/customize-controls.js' ), array(), '1.0', true );
+	wp_enqueue_script( 'reisavvy-customize-controls', get_theme_file_uri( '/assets/js/customize-controls.js' ), array(), '1.0', true );
 }
 add_action( 'customize_controls_enqueue_scripts', 'reisavvy_panels_js' );

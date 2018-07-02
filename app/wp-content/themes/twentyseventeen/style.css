@@ -1,14 +1,14 @@
 @charset "UTF-8";
 /*!
-Theme Name: Twenty Seventeen
-Theme URI: https://wordpress.org/themes/twentyseventeen/
+Theme Name: REIsavvy
+Theme URI: https://wordpress.org/themes/reisavvy/
 Author: the WordPress team
 Author URI: https://wordpress.org/
-Description: Twenty Seventeen brings your site to life with header video and immersive featured images. With a focus on business sites, it features multiple sections on the front page as well as widgets, navigation and social menus, a logo, and more. Personalize its asymmetrical grid with a custom color scheme and showcase your multimedia content with post formats. Our default theme for 2017 works great in many languages, for any abilities, and on any device.
+Description: REIsavvy brings your site to life with header video and immersive featured images. With a focus on business sites, it features multiple sections on the front page as well as widgets, navigation and social menus, a logo, and more. Personalize its asymmetrical grid with a custom color scheme and showcase your multimedia content with post formats. Our default theme for 2017 works great in many languages, for any abilities, and on any device.
 Version: 1.4
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
-Text Domain: twentyseventeen
+Text Domain: reisavvy
 Tags: one-column, two-columns, right-sidebar, flexible-header, accessibility-ready, custom-colors, custom-header, custom-menu, custom-logo, editor-style, featured-images, footer-widgets, post-formats, rtl-language-support, sticky-post, theme-options, threaded-comments, translation-ready
 
 This theme, like WordPress, is licensed under the GPL.
@@ -1303,7 +1303,7 @@ body:not(.title-tagline-hidden) .site-branding-text {
 .custom-header {
   position: relative; }
 
-.has-header-image.twentyseventeen-front-page .custom-header, .has-header-video.twentyseventeen-front-page .custom-header, .has-header-image.home.blog .custom-header, .has-header-video.home.blog .custom-header {
+.has-header-image.reisavvy-front-page .custom-header, .has-header-video.reisavvy-front-page .custom-header, .has-header-image.home.blog .custom-header, .has-header-video.home.blog .custom-header {
   display: table;
   height: 300px;
   height: 75vh;
@@ -1395,7 +1395,7 @@ body:not(.title-tagline-hidden) .site-branding-text {
 .admin-bar .wp-custom-header-video-button {
   top: 62px; }
 
-.has-header-image:not(.twentyseventeen-front-page):not(.home) .custom-header-media img {
+.has-header-image:not(.reisavvy-front-page):not(.home) .custom-header-media img {
   bottom: 0;
   position: absolute;
   top: auto;
@@ -1428,7 +1428,7 @@ body:not(.title-tagline-hidden) .site-branding-text {
     -webkit-transform: none;
     transform: none;
     width: 100%; }
-  .has-header-image:not(.twentyseventeen-front-page):not(.home) .custom-header-media img {
+  .has-header-image:not(.reisavvy-front-page):not(.home) .custom-header-media img {
     height: 100%;
     left: 0;
     -o-object-fit: cover;
@@ -1444,7 +1444,7 @@ body:not(.title-tagline-hidden) .site-branding-text {
 body:not(.has-header-image):not(.has-header-video) .custom-header-media {
   display: none; }
 
-.has-header-image.twentyseventeen-front-page .site-branding, .has-header-video.twentyseventeen-front-page .site-branding, .has-header-image.home.blog .site-branding, .has-header-video.home.blog .site-branding {
+.has-header-image.reisavvy-front-page .site-branding, .has-header-video.reisavvy-front-page .site-branding, .has-header-image.home.blog .site-branding, .has-header-video.home.blog .site-branding {
   display: table-cell;
   height: 100%;
   vertical-align: bottom; }
@@ -1452,10 +1452,10 @@ body:not(.has-header-image):not(.has-header-video) .custom-header-media {
 /*--------------------------------------------------------------
 13.2 Front Page
 --------------------------------------------------------------*/
-.twentyseventeen-front-page .site-content {
+.reisavvy-front-page .site-content {
   padding: 0; }
 
-.twentyseventeen-panel {
+.reisavvy-panel {
   overflow: hidden;
   position: relative; }
 
@@ -1482,7 +1482,7 @@ body:not(.has-header-image):not(.has-header-video) .custom-header-media {
     position: absolute;
     top: 100px; }
 
-.twentyseventeen-front-page article:not(.has-post-thumbnail):not(:first-child) {
+.reisavvy-front-page article:not(.has-post-thumbnail):not(:first-child) {
   border-top: 1px solid #ddd; }
 
 .panel-content {
@@ -1492,16 +1492,16 @@ body:not(.has-header-image):not(.has-header-video) .custom-header-media {
     padding-top: 1.75em; }
 
 /* Panel edit link */
-.twentyseventeen-panel .edit-link {
+.reisavvy-panel .edit-link {
   display: block;
   margin: 0.3em 0 0; }
 
-.twentyseventeen-panel .entry-header .edit-link {
+.reisavvy-panel .entry-header .edit-link {
   font-size: 14px;
   font-size: 0.875rem; }
 
 /* Front Page - Recent Posts */
-.twentyseventeen-front-page .panel-content .recent-posts article {
+.reisavvy-front-page .panel-content .recent-posts article {
   border: 0;
   color: #333;
   margin-bottom: 3em; }
@@ -1516,7 +1516,7 @@ body:not(.has-header-image):not(.has-header-video) .custom-header-media {
   letter-spacing: 0;
   text-transform: none; }
 
-.twentyseventeen-panel .recent-posts .entry-header .edit-link {
+.reisavvy-panel .recent-posts .entry-header .edit-link {
   color: #222;
   display: inline-block;
   font-size: 11px;
@@ -1551,7 +1551,7 @@ body:not(.has-header-image):not(.has-header-video) .custom-header-media {
   top: 1.65em;
   width: 20px; }
 
-.page .panel-content .entry-title, .page-title, body.page:not(.twentyseventeen-front-page) .entry-title {
+.page .panel-content .entry-title, .page-title, body.page:not(.reisavvy-front-page) .entry-title {
   color: #222;
   font-size: 14px;
   font-size: 0.875rem;
@@ -1657,16 +1657,16 @@ body:not(.has-header-image):not(.has-header-video) .custom-header-media {
 .blog .site-main > article, .archive .site-main > article, .search .site-main > article {
   padding-bottom: 2em; }
 
-body:not(.twentyseventeen-front-page) .entry-header {
+body:not(.reisavvy-front-page) .entry-header {
   padding: 1em 0;
   margin-left: auto;
   margin-right: auto; }
 
-body:not(.twentyseventeen-front-page) .entry-content, body:not(.twentyseventeen-front-page) #comments {
+body:not(.reisavvy-front-page) .entry-content, body:not(.reisavvy-front-page) #comments {
   margin-left: auto;
   margin-right: auto; }
 
-body:not(.twentyseventeen-front-page) .entry-header {
+body:not(.reisavvy-front-page) .entry-header {
   padding-top: 0; }
 
 .blog .entry-meta a.post-edit-link, .archive .entry-meta a.post-edit-link {
@@ -1697,7 +1697,7 @@ body:not(.twentyseventeen-front-page) .entry-header {
   margin-top: 1.5em; }
 
 /* Single Post */
-.single-post:not(.has-sidebar) #primary, .page.page-one-column:not(.twentyseventeen-front-page) #primary {
+.single-post:not(.has-sidebar) #primary, .page.page-one-column:not(.reisavvy-front-page) #primary {
   margin-left: auto;
   margin-right: auto;
   max-width: 740px; }
@@ -2450,7 +2450,7 @@ p > embed:only-child, p > iframe:only-child, p > object:only-child {
 /*--------------------------------------------------------------
 17.0 Customizer
 --------------------------------------------------------------*/
-.highlight-front-sections.twentyseventeen-customizer.twentyseventeen-front-page .twentyseventeen-panel:after {
+.highlight-front-sections.reisavvy-customizer.reisavvy-front-page .reisavvy-panel:after {
   border: 2px dashed #0085ba;
   /* Matches visible edit shortcuts. */
   bottom: 1em;
@@ -2462,12 +2462,12 @@ p > embed:only-child, p > iframe:only-child, p > object:only-child {
   top: 1em;
   z-index: 1; }
 
-.highlight-front-sections.twentyseventeen-customizer.twentyseventeen-front-page .twentyseventeen-panel .panel-content {
+.highlight-front-sections.reisavvy-customizer.reisavvy-front-page .reisavvy-panel .panel-content {
   z-index: 2;
   /* Prevent :after from preventing interactions within the section */ }
 
 /* Used for placeholder text */
-.twentyseventeen-customizer.twentyseventeen-front-page .twentyseventeen-panel .twentyseventeen-panel-title {
+.reisavvy-customizer.reisavvy-front-page .reisavvy-panel .reisavvy-panel-title {
   display: block;
   font-size: 14px;
   font-size: 0.875rem;
@@ -2478,18 +2478,18 @@ p > embed:only-child, p > iframe:only-child, p > object:only-child {
   text-align: center; }
 
 /* Show borders on the custom page panels only when the front page sections are being edited */
-.highlight-front-sections.twentyseventeen-customizer.twentyseventeen-front-page .twentyseventeen-panel:nth-of-type(1):after {
+.highlight-front-sections.reisavvy-customizer.reisavvy-front-page .reisavvy-panel:nth-of-type(1):after {
   border: none; }
 
-.twentyseventeen-front-page.twentyseventeen-customizer #primary article.panel-placeholder {
+.reisavvy-front-page.reisavvy-customizer #primary article.panel-placeholder {
   border: 0; }
 
 /* Add some space around the visual edit shortcut buttons. */
-.twentyseventeen-panel > .customize-partial-edit-shortcut > button {
+.reisavvy-panel > .customize-partial-edit-shortcut > button {
   top: 30px;
   left: 30px; }
 
-.twentyseventeen-panel .customize-partial-edit-shortcut-hidden:before {
+.reisavvy-panel .customize-partial-edit-shortcut-hidden:before {
   visibility: visible; }
 
 /* Ensure that placeholder icons are visible. */
@@ -2646,7 +2646,7 @@ p > embed:only-child, p > iframe:only-child, p > object:only-child {
   /* Site Branding */
   .site-branding {
     margin-bottom: 0; }
-  .has-header-image.twentyseventeen-front-page .site-branding, .has-header-video.twentyseventeen-front-page .site-branding, .has-header-image.home.blog .site-branding, .has-header-video.home.blog .site-branding {
+  .has-header-image.reisavvy-front-page .site-branding, .has-header-video.reisavvy-front-page .site-branding, .has-header-image.home.blog .site-branding, .has-header-video.home.blog .site-branding {
     bottom: 0;
     display: block;
     left: 0;
@@ -2654,19 +2654,19 @@ p > embed:only-child, p > iframe:only-child, p > object:only-child {
     padding-top: 0;
     position: absolute;
     width: 100%; }
-  .has-header-image.twentyseventeen-front-page .custom-header, .has-header-video.twentyseventeen-front-page .custom-header, .has-header-image.home.blog .custom-header, .has-header-video.home.blog .custom-header {
+  .has-header-image.reisavvy-front-page .custom-header, .has-header-video.reisavvy-front-page .custom-header, .has-header-image.home.blog .custom-header, .has-header-video.home.blog .custom-header {
     display: block;
     height: auto; }
   .custom-header-media {
     height: 165px;
     position: relative; }
-  .twentyseventeen-front-page.has-header-image .custom-header-media, .twentyseventeen-front-page.has-header-video .custom-header-media {
+  .reisavvy-front-page.has-header-image .custom-header-media, .reisavvy-front-page.has-header-video .custom-header-media {
     height: 0;
     position: relative; }
   .home.blog.has-header-image .custom-header-media, .home.blog.has-header-video .custom-header-media {
     height: 0;
     position: relative; }
-  .has-header-image:not(.twentyseventeen-front-page):not(.home) .custom-header-media, .has-header-video:not(.twentyseventeen-front-page):not(.home) .custom-header-media {
+  .has-header-image:not(.reisavvy-front-page):not(.home) .custom-header-media, .has-header-video:not(.reisavvy-front-page):not(.home) .custom-header-media {
     bottom: 0;
     height: auto;
     left: 0;
@@ -2849,11 +2849,11 @@ p > embed:only-child, p > iframe:only-child, p > object:only-child {
     height: 18px;
     width: 18px; }
   /* Front Page */
-  .twentyseventeen-front-page.has-header-image .site-branding, .twentyseventeen-front-page.has-header-video .site-branding {
+  .reisavvy-front-page.has-header-image .site-branding, .reisavvy-front-page.has-header-video .site-branding {
     margin-bottom: 70px; }
   .home.blog.has-header-image .site-branding, .home.blog.has-header-video .site-branding {
     margin-bottom: 70px; }
-  .twentyseventeen-front-page.has-header-image .custom-header-media, .twentyseventeen-front-page.has-header-video .custom-header-media {
+  .reisavvy-front-page.has-header-image .custom-header-media, .reisavvy-front-page.has-header-video .custom-header-media {
     height: 1200px;
     height: 100vh;
     max-height: 100%;
@@ -2863,11 +2863,11 @@ p > embed:only-child, p > iframe:only-child, p > object:only-child {
     height: 100vh;
     max-height: 100%;
     overflow: hidden; }
-  .twentyseventeen-front-page.has-header-image .custom-header-media:before, .twentyseventeen-front-page.has-header-video .custom-header-media:before {
+  .reisavvy-front-page.has-header-image .custom-header-media:before, .reisavvy-front-page.has-header-video .custom-header-media:before {
     height: 33%; }
   .home.blog.has-header-image .custom-header-media:before, .home.blog.has-header-video .custom-header-media:before {
     height: 33%; }
-  .admin-bar.twentyseventeen-front-page.has-header-image .custom-header-media, .admin-bar.twentyseventeen-front-page.has-header-video .custom-header-media {
+  .admin-bar.reisavvy-front-page.has-header-image .custom-header-media, .admin-bar.reisavvy-front-page.has-header-video .custom-header-media {
     height: calc(100vh - 32px); }
   .admin-bar.home.blog.has-header-image .custom-header-media, .admin-bar.home.blog.has-header-video .custom-header-media {
     height: calc(100vh - 32px); }
@@ -2986,17 +2986,17 @@ p > embed:only-child, p > iframe:only-child, p > object:only-child {
     margin-right: -72.5%;
     width: 62%; }
   /* blog and archive */
-  .blog:not(.has-sidebar) .entry-content blockquote.alignleft, .twentyseventeen-front-page.page-two-column .entry-content blockquote.alignleft, .archive:not(.has-sidebar) .entry-content blockquote.alignleft, .page-two-column .entry-content blockquote.alignleft {
+  .blog:not(.has-sidebar) .entry-content blockquote.alignleft, .reisavvy-front-page.page-two-column .entry-content blockquote.alignleft, .archive:not(.has-sidebar) .entry-content blockquote.alignleft, .page-two-column .entry-content blockquote.alignleft {
     margin-left: -72.5%;
     width: 62%; }
-  .blog:not(.has-sidebar) .entry-content blockquote.alignright, .twentyseventeen-front-page.page-two-column .entry-content blockquote.alignright, .archive:not(.has-sidebar) .entry-content blockquote.alignright, .page-two-column .entry-content blockquote.alignright {
+  .blog:not(.has-sidebar) .entry-content blockquote.alignright, .reisavvy-front-page.page-two-column .entry-content blockquote.alignright, .archive:not(.has-sidebar) .entry-content blockquote.alignright, .page-two-column .entry-content blockquote.alignright {
     margin-right: 0;
     width: 36%; }
   /* Post formats */
   .format-quote blockquote .icon {
     left: -1.5em; }
   /* Pages */
-  .page.page-one-column .entry-header, .twentyseventeen-front-page.page-one-column .entry-header, .archive.page-one-column:not(.has-sidebar) .page-header {
+  .page.page-one-column .entry-header, .reisavvy-front-page.page-one-column .entry-header, .archive.page-one-column:not(.has-sidebar) .page-header {
     margin-bottom: 4em; }
   .page:not(.home) #content {
     padding-bottom: 3.25em; }
@@ -3105,7 +3105,7 @@ p > embed:only-child, p > iframe:only-child, p > object:only-child {
 @media screen and (min-width: 79em) {
   .has-sidebar .entry-content blockquote.alignleft {
     margin-left: -20%; }
-  .blog:not(.has-sidebar) .entry-content blockquote.alignright, .archive:not(.has-sidebar) .entry-content blockquote.alignright, .page-two-column .entry-content blockquote.alignright, .twentyseventeen-front-page .entry-content blockquote.alignright {
+  .blog:not(.has-sidebar) .entry-content blockquote.alignright, .archive:not(.has-sidebar) .entry-content blockquote.alignright, .page-two-column .entry-content blockquote.alignright, .reisavvy-front-page .entry-content blockquote.alignright {
     margin-right: -20%; } }
 
 @media screen and (max-width: 48.875em) and (min-width: 48em) {
@@ -3164,7 +3164,7 @@ p > embed:only-child, p > iframe:only-child, p > object:only-child {
     font-size: 12pt; }
   .page .panel-content .entry-title,
   .page-title,
-  body.page:not(.twentyseventeen-front-page) .entry-title {
+  body.page:not(.reisavvy-front-page) .entry-title {
     font-size: 10pt; }
   /* Layout */
   .row {
@@ -3177,8 +3177,8 @@ p > embed:only-child, p > iframe:only-child, p > object:only-child {
     padding: 0; }
   .custom-header-media {
     padding: 0; }
-  .twentyseventeen-front-page.has-header-image .site-branding,
-  .twentyseventeen-front-page.has-header-video .site-branding {
+  .reisavvy-front-page.has-header-image .site-branding,
+  .reisavvy-front-page.has-header-video .site-branding {
     position: relative; }
   .home.blog.has-header-image .site-branding,
   .home.blog.has-header-video .site-branding {
@@ -3204,18 +3204,18 @@ p > embed:only-child, p > iframe:only-child, p > object:only-child {
   body, a, .site-title a {
     color: #222 !important;
     /* Make sure color schemes don't affect to print */ }
-  .twentyseventeen-front-page.has-header-image .site-title,
-  .twentyseventeen-front-page.has-header-video .site-title,
-  .twentyseventeen-front-page.has-header-image .site-title a,
-  .twentyseventeen-front-page.has-header-video .site-title a {
+  .reisavvy-front-page.has-header-image .site-title,
+  .reisavvy-front-page.has-header-video .site-title,
+  .reisavvy-front-page.has-header-image .site-title a,
+  .reisavvy-front-page.has-header-video .site-title a {
     color: #222 !important;
     /* Make sure color schemes don't affect to print */ }
   h2, h5, blockquote,
   .site-description {
     color: #777 !important;
     /* Make sure color schemes don't affect to print */ }
-  .twentyseventeen-front-page.has-header-image .site-description,
-  .twentyseventeen-front-page.has-header-video .site-description {
+  .reisavvy-front-page.has-header-image .site-description,
+  .reisavvy-front-page.has-header-video .site-description {
     color: #777 !important;
     /* Make sure color schemes don't affect to print */ }
   .entry-meta {

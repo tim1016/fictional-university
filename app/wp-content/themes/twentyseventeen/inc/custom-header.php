@@ -17,9 +17,9 @@
 function reisavvy_custom_header_setup() {
 
 	/**
-	 * Filter Twenty Seventeen custom-header support arguments.
+	 * Filter REIsavvy custom-header support arguments.
 	 *
-	 * @since Twenty Seventeen 1.0
+	 * @since REIsavvy 1.0
 	 *
 	 * @param array $args {
 	 *     An array of custom-header support arguments.
@@ -51,7 +51,7 @@ function reisavvy_custom_header_setup() {
 			'default-image' => array(
 				'url'           => '%s/assets/images/header2.jpg',
 				'thumbnail_url' => '%s/assets/images/header2.jpg',
-				'description'   => __( 'Default Header Image', 'twentyseventeen' ),
+				'description'   => __( 'Default Header Image', 'reisavvy' ),
 			),
 		)
 	);
@@ -75,7 +75,7 @@ if ( ! function_exists( 'reisavvy_header_style' ) ) :
 
 		// If we get this far, we have custom styles. Let's do this.
 		?>
-		<style id="twentyseventeen-custom-header-styles" type="text/css">
+		<style id="reisavvy-custom-header-styles" type="text/css">
 		<?php
 		// Has the text been hidden?
 		if ( 'blank' === $header_text_color ) :
@@ -122,8 +122,8 @@ endif; // End of reisavvy_header_style.
  * @return array The filtered video settings.
  */
 function reisavvy_video_controls( $settings ) {
-	$settings['l10n']['play']  = '<span class="screen-reader-text">' . __( 'Play background video', 'twentyseventeen' ) . '</span>' . reisavvy_get_svg( array( 'icon' => 'play' ) );
-	$settings['l10n']['pause'] = '<span class="screen-reader-text">' . __( 'Pause background video', 'twentyseventeen' ) . '</span>' . reisavvy_get_svg( array( 'icon' => 'pause' ) );
+	$settings['l10n']['play']  = '<span class="screen-reader-text">' . __( 'Play background video', 'reisavvy' ) . '</span>' . reisavvy_get_svg( array( 'icon' => 'play' ) );
+	$settings['l10n']['pause'] = '<span class="screen-reader-text">' . __( 'Pause background video', 'reisavvy' ) . '</span>' . reisavvy_get_svg( array( 'icon' => 'pause' ) );
 	return $settings;
 }
 add_filter( 'header_video_settings', 'reisavvy_video_controls' );

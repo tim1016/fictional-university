@@ -35,7 +35,7 @@
   .site-branding {
     margin-bottom: 0;
   }
-  .has-header-image.twentyseventeen-front-page .site-branding, .has-header-video.twentyseventeen-front-page .site-branding, .has-header-image.home.blog .site-branding, .has-header-video.home.blog .site-branding {
+  .has-header-image.reisavvy-front-page .site-branding, .has-header-video.reisavvy-front-page .site-branding, .has-header-image.home.blog .site-branding, .has-header-video.home.blog .site-branding {
     bottom: 0;
     display: block;
     left: 0;
@@ -44,7 +44,7 @@
     position: absolute;
     width: 100%;
   }
-  .has-header-image.twentyseventeen-front-page .custom-header, .has-header-video.twentyseventeen-front-page .custom-header, .has-header-image.home.blog .custom-header, .has-header-video.home.blog .custom-header {
+  .has-header-image.reisavvy-front-page .custom-header, .has-header-video.reisavvy-front-page .custom-header, .has-header-image.home.blog .custom-header, .has-header-video.home.blog .custom-header {
     display: block;
     height: auto;
   }
@@ -52,7 +52,7 @@
     height: 165px;
     position: relative;
   }
-  .twentyseventeen-front-page {
+  .reisavvy-front-page {
     &.has-header-image .custom-header-media, &.has-header-video .custom-header-media {
       height: 0;
       position: relative;
@@ -64,7 +64,7 @@
       position: relative;
     }
   }
-  .has-header-image:not(.twentyseventeen-front-page):not(.home) .custom-header-media, .has-header-video:not(.twentyseventeen-front-page):not(.home) .custom-header-media {
+  .has-header-image:not(.reisavvy-front-page):not(.home) .custom-header-media, .has-header-video:not(.reisavvy-front-page):not(.home) .custom-header-media {
     bottom: 0;
     height: auto;
     left: 0;
@@ -338,7 +338,7 @@
     }
   }
   /* Front Page */
-  .twentyseventeen-front-page {
+  .reisavvy-front-page {
     &.has-header-image .site-branding, &.has-header-video .site-branding {
       margin-bottom: 70px;
     }
@@ -348,7 +348,7 @@
       margin-bottom: 70px;
     }
   }
-  .twentyseventeen-front-page {
+  .reisavvy-front-page {
     &.has-header-image .custom-header-media, &.has-header-video .custom-header-media {
       height: 1200px;
       height: 100vh;
@@ -364,7 +364,7 @@
       overflow: hidden;
     }
   }
-  .twentyseventeen-front-page {
+  .reisavvy-front-page {
     &.has-header-image .custom-header-media:before, &.has-header-video .custom-header-media:before {
       height: 33%;
     }
@@ -375,7 +375,7 @@
     }
   }
   .admin-bar {
-    &.twentyseventeen-front-page {
+    &.reisavvy-front-page {
       &.has-header-image .custom-header-media, &.has-header-video .custom-header-media {
         height: calc(100vh - 32px);
       }
@@ -555,11 +555,11 @@
     }
   }
   /* blog and archive */
-  .blog:not(.has-sidebar) .entry-content blockquote.alignleft, .twentyseventeen-front-page.page-two-column .entry-content blockquote.alignleft, .archive:not(.has-sidebar) .entry-content blockquote.alignleft, .page-two-column .entry-content blockquote.alignleft {
+  .blog:not(.has-sidebar) .entry-content blockquote.alignleft, .reisavvy-front-page.page-two-column .entry-content blockquote.alignleft, .archive:not(.has-sidebar) .entry-content blockquote.alignleft, .page-two-column .entry-content blockquote.alignleft {
     margin-left: -72.5%;
     width: 62%;
   }
-  .blog:not(.has-sidebar) .entry-content blockquote.alignright, .twentyseventeen-front-page.page-two-column .entry-content blockquote.alignright, .archive:not(.has-sidebar) .entry-content blockquote.alignright, .page-two-column .entry-content blockquote.alignright {
+  .blog:not(.has-sidebar) .entry-content blockquote.alignright, .reisavvy-front-page.page-two-column .entry-content blockquote.alignright, .archive:not(.has-sidebar) .entry-content blockquote.alignright, .page-two-column .entry-content blockquote.alignright {
     margin-right: 0;
     width: 36%;
   }
@@ -568,7 +568,7 @@
     left: -1.5em;
   }
   /* Pages */
-  .page.page-one-column .entry-header, .twentyseventeen-front-page.page-one-column .entry-header, .archive.page-one-column:not(.has-sidebar) .page-header {
+  .page.page-one-column .entry-header, .reisavvy-front-page.page-one-column .entry-header, .archive.page-one-column:not(.has-sidebar) .page-header {
     margin-bottom: 4em;
   }
   .page:not(.home) #content {

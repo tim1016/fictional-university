@@ -1,6 +1,6 @@
 <?php
 /**
- * Twenty Seventeen functions and definitions
+ * REIsavvy functions and definitions
  *
  * @link https://developer.wordpress.org/themes/basics/theme-functions/
  *
@@ -10,7 +10,7 @@
  */
 
 /**
- * Twenty Seventeen only works in WordPress 4.7 or later.
+ * REIsavvy only works in WordPress 4.7 or later.
  */
 if ( version_compare( $GLOBALS['wp_version'], '4.7-alpha', '<' ) ) {
 	require get_template_directory() . '/inc/back-compat.php';
@@ -27,11 +27,11 @@ if ( version_compare( $GLOBALS['wp_version'], '4.7-alpha', '<' ) ) {
 function reisavvy_setup() {
 	/*
 	 * Make theme available for translation.
-	 * Translations can be filed at WordPress.org. See: https://translate.wordpress.org/projects/wp-themes/twentyseventeen
-	 * If you're building a theme based on Twenty Seventeen, use a find and replace
-	 * to change 'twentyseventeen' to the name of your theme in all the template files.
+	 * Translations can be filed at WordPress.org. See: https://translate.wordpress.org/projects/wp-themes/reisavvy
+	 * If you're building a theme based on REIsavvy, use a find and replace
+	 * to change 'reisavvy' to the name of your theme in all the template files.
 	 */
-	load_theme_textdomain( 'twentyseventeen' );
+	load_theme_textdomain( 'reisavvy' );
 
 	// Add default posts and comments RSS feed links to head.
 	add_theme_support( 'automatic-feed-links' );
@@ -51,9 +51,9 @@ function reisavvy_setup() {
 	 */
 	add_theme_support( 'post-thumbnails' );
 
-	add_image_size( 'twentyseventeen-featured-image', 2000, 1200, true );
+	add_image_size( 'reisavvy-featured-image', 2000, 1200, true );
 
-	add_image_size( 'twentyseventeen-thumbnail-avatar', 100, 100, true );
+	add_image_size( 'reisavvy-thumbnail-avatar', 100, 100, true );
 
 	// Set the default content width.
 	$GLOBALS['content_width'] = 525;
@@ -61,8 +61,8 @@ function reisavvy_setup() {
 	// This theme uses wp_nav_menu() in two locations.
 	register_nav_menus(
 		array(
-			'top'    => __( 'Top Menu', 'twentyseventeen' ),
-			'social' => __( 'Social Links Menu', 'twentyseventeen' ),
+			'top'    => __( 'Top Menu', 'reisavvy' ),
+			'social' => __( 'Social Links Menu', 'reisavvy' ),
 		)
 	);
 
@@ -156,15 +156,15 @@ function reisavvy_setup() {
 		// Create the custom image attachments used as post thumbnails for pages.
 		'attachments' => array(
 			'image-espresso' => array(
-				'post_title' => _x( 'Espresso', 'Theme starter content', 'twentyseventeen' ),
+				'post_title' => _x( 'Espresso', 'Theme starter content', 'reisavvy' ),
 				'file'       => 'assets/images/espresso.jpg', // URL relative to the template directory.
 			),
 			'image-sandwich' => array(
-				'post_title' => _x( 'Sandwich', 'Theme starter content', 'twentyseventeen' ),
+				'post_title' => _x( 'Sandwich', 'Theme starter content', 'reisavvy' ),
 				'file'       => 'assets/images/sandwich.jpg',
 			),
 			'image-coffee'   => array(
-				'post_title' => _x( 'Coffee', 'Theme starter content', 'twentyseventeen' ),
+				'post_title' => _x( 'Coffee', 'Theme starter content', 'reisavvy' ),
 				'file'       => 'assets/images/coffee.jpg',
 			),
 		),
@@ -188,7 +188,7 @@ function reisavvy_setup() {
 		'nav_menus'   => array(
 			// Assign a menu to the "top" location.
 			'top'    => array(
-				'name'  => __( 'Top Menu', 'twentyseventeen' ),
+				'name'  => __( 'Top Menu', 'reisavvy' ),
 				'items' => array(
 					'link_home', // Note that the core "home" page is actually a link in case a static front page is not used.
 					'page_about',
@@ -199,7 +199,7 @@ function reisavvy_setup() {
 
 			// Assign a menu to the "social" location.
 			'social' => array(
-				'name'  => __( 'Social Links Menu', 'twentyseventeen' ),
+				'name'  => __( 'Social Links Menu', 'reisavvy' ),
 				'items' => array(
 					'link_yelp',
 					'link_facebook',
@@ -212,9 +212,9 @@ function reisavvy_setup() {
 	);
 
 	/**
-	 * Filters Twenty Seventeen array of starter content.
+	 * Filters REIsavvy array of starter content.
 	 *
-	 * @since Twenty Seventeen 1.1
+	 * @since REIsavvy 1.1
 	 *
 	 * @param array $starter_content Array of starter content.
 	 */
@@ -253,9 +253,9 @@ function reisavvy_content_width() {
 	}
 
 	/**
-	 * Filter Twenty Seventeen content width of the theme.
+	 * Filter REIsavvy content width of the theme.
 	 *
-	 * @since Twenty Seventeen 1.0
+	 * @since REIsavvy 1.0
 	 *
 	 * @param int $content_width Content width in pixels.
 	 */
@@ -274,7 +274,7 @@ function reisavvy_fonts_url() {
 	 * supported by Libre Franklin, translate this to 'off'. Do not translate
 	 * into your own language.
 	 */
-	$libre_franklin = _x( 'on', 'Libre Franklin font: on or off', 'twentyseventeen' );
+	$libre_franklin = _x( 'on', 'Libre Franklin font: on or off', 'reisavvy' );
 
 	if ( 'off' !== $libre_franklin ) {
 		$font_families = array();
@@ -298,14 +298,14 @@ function reisavvy_fonts_url() {
 /**
  * Add preconnect for Google Fonts.
  *
- * @since Twenty Seventeen 1.0
+ * @since REIsavvy 1.0
  *
  * @param array  $urls           URLs to print for resource hints.
  * @param string $relation_type  The relation type the URLs are printed.
  * @return array $urls           URLs to print for resource hints.
  */
 function reisavvy_resource_hints( $urls, $relation_type ) {
-	if ( wp_style_is( 'twentyseventeen-fonts', 'queue' ) && 'preconnect' === $relation_type ) {
+	if ( wp_style_is( 'reisavvy-fonts', 'queue' ) && 'preconnect' === $relation_type ) {
 		$urls[] = array(
 			'href' => 'https://fonts.gstatic.com',
 			'crossorigin',
@@ -324,9 +324,9 @@ add_filter( 'wp_resource_hints', 'reisavvy_resource_hints', 10, 2 );
 function reisavvy_widgets_init() {
 	register_sidebar(
 		array(
-			'name'          => __( 'Blog Sidebar', 'twentyseventeen' ),
+			'name'          => __( 'Blog Sidebar', 'reisavvy' ),
 			'id'            => 'sidebar-1',
-			'description'   => __( 'Add widgets here to appear in your sidebar on blog posts and archive pages.', 'twentyseventeen' ),
+			'description'   => __( 'Add widgets here to appear in your sidebar on blog posts and archive pages.', 'reisavvy' ),
 			'before_widget' => '<section id="%1$s" class="widget %2$s">',
 			'after_widget'  => '</section>',
 			'before_title'  => '<h2 class="widget-title">',
@@ -336,9 +336,9 @@ function reisavvy_widgets_init() {
 
 	register_sidebar(
 		array(
-			'name'          => __( 'Footer 1', 'twentyseventeen' ),
+			'name'          => __( 'Footer 1', 'reisavvy' ),
 			'id'            => 'sidebar-2',
-			'description'   => __( 'Add widgets here to appear in your footer.', 'twentyseventeen' ),
+			'description'   => __( 'Add widgets here to appear in your footer.', 'reisavvy' ),
 			'before_widget' => '<section id="%1$s" class="widget %2$s">',
 			'after_widget'  => '</section>',
 			'before_title'  => '<h2 class="widget-title">',
@@ -348,9 +348,9 @@ function reisavvy_widgets_init() {
 
 	register_sidebar(
 		array(
-			'name'          => __( 'Footer 2', 'twentyseventeen' ),
+			'name'          => __( 'Footer 2', 'reisavvy' ),
 			'id'            => 'sidebar-3',
-			'description'   => __( 'Add widgets here to appear in your footer.', 'twentyseventeen' ),
+			'description'   => __( 'Add widgets here to appear in your footer.', 'reisavvy' ),
 			'before_widget' => '<section id="%1$s" class="widget %2$s">',
 			'after_widget'  => '</section>',
 			'before_title'  => '<h2 class="widget-title">',
@@ -364,7 +364,7 @@ add_action( 'widgets_init', 'reisavvy_widgets_init' );
  * Replaces "[...]" (appended to automatically generated excerpts) with ... and
  * a 'Continue reading' link.
  *
- * @since Twenty Seventeen 1.0
+ * @since REIsavvy 1.0
  *
  * @param string $link Link to single post/page.
  * @return string 'Continue reading' link prepended with an ellipsis.
@@ -378,7 +378,7 @@ function reisavvy_excerpt_more( $link ) {
 		'<p class="link-more"><a href="%1$s" class="more-link">%2$s</a></p>',
 		esc_url( get_permalink( get_the_ID() ) ),
 		/* translators: %s: Name of current post */
-		sprintf( __( 'Continue reading<span class="screen-reader-text"> "%s"</span>', 'twentyseventeen' ), get_the_title( get_the_ID() ) )
+		sprintf( __( 'Continue reading<span class="screen-reader-text"> "%s"</span>', 'reisavvy' ), get_the_title( get_the_ID() ) )
 	);
 	return ' &hellip; ' . $link;
 }
@@ -389,7 +389,7 @@ add_filter( 'excerpt_more', 'reisavvy_excerpt_more' );
  *
  * Adds a `js` class to the root `<html>` element when JavaScript is detected.
  *
- * @since Twenty Seventeen 1.0
+ * @since REIsavvy 1.0
  */
 function reisavvy_javascript_detection() {
 	echo "<script>(function(html){html.className = html.className.replace(/\bno-js\b/,'js')})(document.documentElement);</script>\n";
@@ -434,40 +434,40 @@ add_action( 'wp_head', 'reisavvy_colors_css_row' );
  */
 function reisavvy_scripts() {
 	// Add custom fonts, used in the main stylesheet.
-	wp_enqueue_style( 'twentyseventeen-fonts', reisavvy_fonts_url(), array(), null );
+	wp_enqueue_style( 'reisavvy-fonts', reisavvy_fonts_url(), array(), null );
 
 	// Theme stylesheet.
-	wp_enqueue_style( 'twentyseventeen-style', get_stylesheet_uri() );
+	wp_enqueue_style( 'reisavvy-style', get_stylesheet_uri() );
 
 	// Load the dark colorscheme.
 	if ( 'dark' === get_theme_mod( 'colorscheme', 'light' ) || is_customize_preview() ) {
-		wp_enqueue_style( 'twentyseventeen-colors-dark', get_theme_file_uri( '/assets/css/colors-dark.css' ), array( 'twentyseventeen-style' ), '1.0' );
+		wp_enqueue_style( 'reisavvy-colors-dark', get_theme_file_uri( '/assets/css/colors-dark.css' ), array( 'reisavvy-style' ), '1.0' );
 	}
 
 	// Load the Internet Explorer 9 specific stylesheet, to fix display issues in the Customizer.
 	if ( is_customize_preview() ) {
-		wp_enqueue_style( 'twentyseventeen-ie9', get_theme_file_uri( '/assets/css/ie9.css' ), array( 'twentyseventeen-style' ), '1.0' );
-		wp_style_add_data( 'twentyseventeen-ie9', 'conditional', 'IE 9' );
+		wp_enqueue_style( 'reisavvy-ie9', get_theme_file_uri( '/assets/css/ie9.css' ), array( 'reisavvy-style' ), '1.0' );
+		wp_style_add_data( 'reisavvy-ie9', 'conditional', 'IE 9' );
 	}
 
 	// Load the Internet Explorer 8 specific stylesheet.
-	wp_enqueue_style( 'twentyseventeen-ie8', get_theme_file_uri( '/assets/css/ie8.css' ), array( 'twentyseventeen-style' ), '1.0' );
-	wp_style_add_data( 'twentyseventeen-ie8', 'conditional', 'lt IE 9' );
+	wp_enqueue_style( 'reisavvy-ie8', get_theme_file_uri( '/assets/css/ie8.css' ), array( 'reisavvy-style' ), '1.0' );
+	wp_style_add_data( 'reisavvy-ie8', 'conditional', 'lt IE 9' );
 
 	// Load the html5 shiv.
 	wp_enqueue_script( 'html5', get_theme_file_uri( '/assets/js/html5.js' ), array(), '3.7.3' );
 	wp_script_add_data( 'html5', 'conditional', 'lt IE 9' );
 
-	wp_enqueue_script( 'twentyseventeen-skip-link-focus-fix', get_theme_file_uri( '/assets/js/skip-link-focus-fix.js' ), array(), '1.0', true );
+	wp_enqueue_script( 'reisavvy-skip-link-focus-fix', get_theme_file_uri( '/assets/js/skip-link-focus-fix.js' ), array(), '1.0', true );
 
 	$reisavvy_l10n = array(
 		'quote' => reisavvy_get_svg( array( 'icon' => 'quote-right' ) ),
 	);
 
 	if ( has_nav_menu( 'top' ) ) {
-		wp_enqueue_script( 'twentyseventeen-navigation', get_theme_file_uri( '/assets/js/navigation.js' ), array( 'jquery' ), '1.0', true );
-		$reisavvy_l10n['expand']   = __( 'Expand child menu', 'twentyseventeen' );
-		$reisavvy_l10n['collapse'] = __( 'Collapse child menu', 'twentyseventeen' );
+		wp_enqueue_script( 'reisavvy-navigation', get_theme_file_uri( '/assets/js/navigation.js' ), array( 'jquery' ), '1.0', true );
+		$reisavvy_l10n['expand']   = __( 'Expand child menu', 'reisavvy' );
+		$reisavvy_l10n['collapse'] = __( 'Collapse child menu', 'reisavvy' );
 		$reisavvy_l10n['icon']     = reisavvy_get_svg(
 			array(
 				'icon'     => 'angle-down',
@@ -476,11 +476,11 @@ function reisavvy_scripts() {
 		);
 	}
 
-	wp_enqueue_script( 'twentyseventeen-global', get_theme_file_uri( '/assets/js/global.js' ), array( 'jquery' ), '1.0', true );
+	wp_enqueue_script( 'reisavvy-global', get_theme_file_uri( '/assets/js/global.js' ), array( 'jquery' ), '1.0', true );
 
 	wp_enqueue_script( 'jquery-scrollto', get_theme_file_uri( '/assets/js/jquery.scrollTo.js' ), array( 'jquery' ), '2.1.2', true );
 
-	wp_localize_script( 'twentyseventeen-skip-link-focus-fix', 'twentyseventeenScreenReaderText', $reisavvy_l10n );
+	wp_localize_script( 'reisavvy-skip-link-focus-fix', 'reisavvyScreenReaderText', $reisavvy_l10n );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
@@ -492,7 +492,7 @@ add_action( 'wp_enqueue_scripts', 'reisavvy_scripts' );
  * Add custom image sizes attribute to enhance responsive image functionality
  * for content images.
  *
- * @since Twenty Seventeen 1.0
+ * @since REIsavvy 1.0
  *
  * @param string $sizes A source size value for use in a 'sizes' attribute.
  * @param array  $size  Image size. Accepts an array of width and height
@@ -519,7 +519,7 @@ add_filter( 'wp_calculate_image_sizes', 'reisavvy_content_image_sizes_attr', 10,
 /**
  * Filter the `sizes` value in the header image markup.
  *
- * @since Twenty Seventeen 1.0
+ * @since REIsavvy 1.0
  *
  * @param string $html   The HTML image tag markup being filtered.
  * @param object $header The custom header object returned by 'get_custom_header()'.
@@ -538,7 +538,7 @@ add_filter( 'get_header_image_tag', 'reisavvy_header_image_tag', 10, 3 );
  * Add custom image sizes attribute to enhance responsive image functionality
  * for post thumbnails.
  *
- * @since Twenty Seventeen 1.0
+ * @since REIsavvy 1.0
  *
  * @param array $attr       Attributes for the image markup.
  * @param int   $attachment Image attachment ID.
@@ -559,7 +559,7 @@ add_filter( 'wp_get_attachment_image_attributes', 'reisavvy_post_thumbnail_sizes
 /**
  * Use front-page.php when Front page displays is set to a static page.
  *
- * @since Twenty Seventeen 1.0
+ * @since REIsavvy 1.0
  *
  * @param string $template front-page.php.
  *
@@ -574,7 +574,7 @@ add_filter( 'frontpage_template', 'reisavvy_front_page_template' );
  * Modifies tag cloud widget arguments to display all tags in the same font size
  * and use list format for better accessibility.
  *
- * @since Twenty Seventeen 1.4
+ * @since REIsavvy 1.4
  *
  * @param array $args Arguments for tag cloud widget.
  * @return array The filtered arguments for tag cloud widget.

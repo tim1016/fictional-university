@@ -21,7 +21,7 @@
   width: 20px;
 }
 
-.page .panel-content .entry-title, .page-title, body.page:not(.twentyseventeen-front-page) .entry-title {
+.page .panel-content .entry-title, .page-title, body.page:not(.reisavvy-front-page) .entry-title {
   color: $black2;
   font-size: 14px;
   font-size: 0.875rem;
@@ -159,7 +159,7 @@
   padding-bottom: 2em;
 }
 
-body:not(.twentyseventeen-front-page) {
+body:not(.reisavvy-front-page) {
   .entry-header {
     padding: 1em 0;
     margin-left: auto;
@@ -210,7 +210,7 @@ body:not(.twentyseventeen-front-page) {
 
 /* Single Post */
 
-.single-post:not(.has-sidebar) #primary, .page.page-one-column:not(.twentyseventeen-front-page) #primary {
+.single-post:not(.has-sidebar) #primary, .page.page-one-column:not(.reisavvy-front-page) #primary {
   margin-left: auto;
   margin-right: auto;
   max-width: 740px;

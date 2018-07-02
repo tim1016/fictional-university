@@ -2,7 +2,7 @@
 17.0 Customizer
 --------------------------------------------------------------*/
 
-.highlight-front-sections.twentyseventeen-customizer.twentyseventeen-front-page .twentyseventeen-panel {
+.highlight-front-sections.reisavvy-customizer.reisavvy-front-page .reisavvy-panel {
   &:after {
     border: 2px dashed $blue1;
     /* Matches visible edit shortcuts. */
@@ -23,7 +23,7 @@
 
 /* Used for placeholder text */
 
-.twentyseventeen-customizer.twentyseventeen-front-page .twentyseventeen-panel .twentyseventeen-panel-title {
+.reisavvy-customizer.reisavvy-front-page .reisavvy-panel .reisavvy-panel-title {
   display: block;
   font-size: 14px;
   font-size: 0.875rem;
@@ -36,22 +36,22 @@
 
 /* Show borders on the custom page panels only when the front page sections are being edited */
 
-.highlight-front-sections.twentyseventeen-customizer.twentyseventeen-front-page .twentyseventeen-panel:nth-of-type(1):after {
+.highlight-front-sections.reisavvy-customizer.reisavvy-front-page .reisavvy-panel:nth-of-type(1):after {
   border: none;
 }
 
-.twentyseventeen-front-page.twentyseventeen-customizer #primary article.panel-placeholder {
+.reisavvy-front-page.reisavvy-customizer #primary article.panel-placeholder {
   border: 0;
 }
 
 /* Add some space around the visual edit shortcut buttons. */
 
-.twentyseventeen-panel > .customize-partial-edit-shortcut > button {
+.reisavvy-panel > .customize-partial-edit-shortcut > button {
   top: 30px;
   left: 30px;
 }
 
-.twentyseventeen-panel {
+.reisavvy-panel {
   .customize-partial-edit-shortcut-hidden:before {
     visibility: visible;
   }

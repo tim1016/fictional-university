@@ -103,7 +103,7 @@ body:not(.title-tagline-hidden) .site-branding-text {
   position: relative;
 }
 
-.has-header-image.twentyseventeen-front-page .custom-header, .has-header-video.twentyseventeen-front-page .custom-header, .has-header-image.home.blog .custom-header, .has-header-video.home.blog .custom-header {
+.has-header-image.reisavvy-front-page .custom-header, .has-header-video.reisavvy-front-page .custom-header, .has-header-image.home.blog .custom-header, .has-header-video.home.blog .custom-header {
   display: table;
   height: 300px;
   height: 75vh;
@@ -205,7 +205,7 @@ body:not(.title-tagline-hidden) .site-branding-text {
   top: 62px;
 }
 
-.has-header-image:not(.twentyseventeen-front-page):not(.home) .custom-header-media img {
+.has-header-image:not(.reisavvy-front-page):not(.home) .custom-header-media img {
   bottom: 0;
   position: absolute;
   top: auto;
@@ -243,7 +243,7 @@ body:not(.title-tagline-hidden) .site-branding-text {
       width: 100%;
     }
   }
-  .has-header-image:not(.twentyseventeen-front-page):not(.home) .custom-header-media img {
+  .has-header-image:not(.reisavvy-front-page):not(.home) .custom-header-media img {
     height: 100%;
     left: 0;
     -o-object-fit: cover;
@@ -263,7 +263,7 @@ body:not(.has-header-image):not(.has-header-video) .custom-header-media {
   display: none;
 }
 
-.has-header-image.twentyseventeen-front-page .site-branding, .has-header-video.twentyseventeen-front-page .site-branding, .has-header-image.home.blog .site-branding, .has-header-video.home.blog .site-branding {
+.has-header-image.reisavvy-front-page .site-branding, .has-header-video.reisavvy-front-page .site-branding, .has-header-image.home.blog .site-branding, .has-header-video.home.blog .site-branding {
   display: table-cell;
   height: 100%;
   vertical-align: bottom;

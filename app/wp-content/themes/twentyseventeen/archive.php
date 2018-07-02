@@ -45,9 +45,9 @@ get_header(); ?>
 
 			the_posts_pagination(
 				array(
-					'prev_text'          => reisavvy_get_svg( array( 'icon' => 'arrow-left' ) ) . '<span class="screen-reader-text">' . __( 'Previous page', 'twentyseventeen' ) . '</span>',
-					'next_text'          => '<span class="screen-reader-text">' . __( 'Next page', 'twentyseventeen' ) . '</span>' . reisavvy_get_svg( array( 'icon' => 'arrow-right' ) ),
-					'before_page_number' => '<span class="meta-nav screen-reader-text">' . __( 'Page', 'twentyseventeen' ) . ' </span>',
+					'prev_text'          => reisavvy_get_svg( array( 'icon' => 'arrow-left' ) ) . '<span class="screen-reader-text">' . __( 'Previous page', 'reisavvy' ) . '</span>',
+					'next_text'          => '<span class="screen-reader-text">' . __( 'Next page', 'reisavvy' ) . '</span>' . reisavvy_get_svg( array( 'icon' => 'arrow-right' ) ),
+					'before_page_number' => '<span class="meta-nav screen-reader-text">' . __( 'Page', 'reisavvy' ) . ' </span>',
 				)
 			);
 

@@ -23,7 +23,7 @@
 
 			wp_link_pages(
 				array(
-					'before' => '<div class="page-links">' . __( 'Pages:', 'twentyseventeen' ),
+					'before' => '<div class="page-links">' . __( 'Pages:', 'reisavvy' ),
 					'after'  => '</div>',
 				)
 			);

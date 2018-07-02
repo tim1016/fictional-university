@@ -60,7 +60,7 @@
   }
   .page .panel-content .entry-title,
   .page-title,
-  body.page:not(.twentyseventeen-front-page) .entry-title {
+  body.page:not(.reisavvy-front-page) .entry-title {
     font-size: 10pt;
   }
   /* Layout */
@@ -77,7 +77,7 @@
   .custom-header-media {
     padding: 0;
   }
-  .twentyseventeen-front-page {
+  .reisavvy-front-page {
     &.has-header-image .site-branding,
     &.has-header-video .site-branding {
       position: relative;
@@ -117,7 +117,7 @@
     color: $black2 !important;
     /* Make sure color schemes don't affect to print */
   }
-  .twentyseventeen-front-page {
+  .reisavvy-front-page {
     &.has-header-image .site-title,
     &.has-header-video .site-title,
     &.has-header-image .site-title a,
@@ -131,7 +131,7 @@
     color: $gray6 !important;
     /* Make sure color schemes don't affect to print */
   }
-  .twentyseventeen-front-page {
+  .reisavvy-front-page {
     &.has-header-image .site-description,
     &.has-header-video .site-description {
       color: $gray6 !important;
