@@ -12,9 +12,9 @@
 /**
  * Set up the WordPress core custom header feature.
  *
- * @uses twentyseventeen_header_style()
+ * @uses reisavvy_header_style()
  */
-function twentyseventeen_custom_header_setup() {
+function reisavvy_custom_header_setup() {
 
 	/**
 	 * Filter Twenty Seventeen custom-header support arguments.
@@ -35,13 +35,13 @@ function twentyseventeen_custom_header_setup() {
 	 */
 	add_theme_support(
 		'custom-header', apply_filters(
-			'twentyseventeen_custom_header_args', array(
+			'reisavvy_custom_header_args', array(
 				'default-image'    => get_parent_theme_file_uri( '/assets/images/header2.jpg' ),
 				'width'            => 2000,
 				'height'           => 1200,
 				'flex-height'      => true,
 				'video'            => true,
-				'wp-head-callback' => 'twentyseventeen_header_style',
+				'wp-head-callback' => 'reisavvy_header_style',
 			)
 		)
 	);
@@ -56,15 +56,15 @@ function twentyseventeen_custom_header_setup() {
 		)
 	);
 }
-add_action( 'after_setup_theme', 'twentyseventeen_custom_header_setup' );
+add_action( 'after_setup_theme', 'reisavvy_custom_header_setup' );
 
-if ( ! function_exists( 'twentyseventeen_header_style' ) ) :
+if ( ! function_exists( 'reisavvy_header_style' ) ) :
 	/**
 	 * Styles the header image and text displayed on the blog.
 	 *
-	 * @see twentyseventeen_custom_header_setup().
+	 * @see reisavvy_custom_header_setup().
 	 */
-	function twentyseventeen_header_style() {
+	function reisavvy_header_style() {
 		$header_text_color = get_header_textcolor();
 
 		// If no custom options for text are set, let's bail.
@@ -113,7 +113,7 @@ if ( ! function_exists( 'twentyseventeen_header_style' ) ) :
 	</style>
 	<?php
 	}
-endif; // End of twentyseventeen_header_style.
+endif; // End of reisavvy_header_style.
 
 /**
  * Customize video play/pause button in the custom header.
@@ -121,9 +121,9 @@ endif; // End of twentyseventeen_header_style.
  * @param array $settings Video settings.
  * @return array The filtered video settings.
  */
-function twentyseventeen_video_controls( $settings ) {
-	$settings['l10n']['play']  = '<span class="screen-reader-text">' . __( 'Play background video', 'twentyseventeen' ) . '</span>' . twentyseventeen_get_svg( array( 'icon' => 'play' ) );
-	$settings['l10n']['pause'] = '<span class="screen-reader-text">' . __( 'Pause background video', 'twentyseventeen' ) . '</span>' . twentyseventeen_get_svg( array( 'icon' => 'pause' ) );
+function reisavvy_video_controls( $settings ) {
+	$settings['l10n']['play']  = '<span class="screen-reader-text">' . __( 'Play background video', 'twentyseventeen' ) . '</span>' . reisavvy_get_svg( array( 'icon' => 'play' ) );
+	$settings['l10n']['pause'] = '<span class="screen-reader-text">' . __( 'Pause background video', 'twentyseventeen' ) . '</span>' . reisavvy_get_svg( array( 'icon' => 'pause' ) );
 	return $settings;
 }
-add_filter( 'header_video_settings', 'twentyseventeen_video_controls' );
+add_filter( 'header_video_settings', 'reisavvy_video_controls' );
