@@ -100,7 +100,7 @@ h2.widget-title {
 /* Text widget */
 
 .widget_text {
-  word-row: break-word;
+  word-wrap: break-word;
   ul {
     list-style: disc;
     margin: 0 0 1.5em 1.5em;
@@ -248,7 +248,7 @@ h2.widget-title {
     position: relative;
     transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out, color 0.3s ease-in-out;
     width: auto;
-    word-row: break-word;
+    word-wrap: break-word;
     z-index: 0;
   }
 }
@@ -261,7 +261,7 @@ h2.widget-title {
   position: relative;
   transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out, color 0.3s ease-in-out;
   width: auto;
-  word-row: break-word;
+  word-wrap: break-word;
   z-index: 0;
 }
 
