@@ -1,5 +1,5 @@
 <?php
-    //require get_theme_file_path('rei/inc/merge_old_features.php');
+    require get_theme_file_path('rei/inc/merge_old_features.php');
 /**
  * REIsavvy functions and definitions
  *

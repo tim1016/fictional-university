@@ -6,9 +6,19 @@
  * @subpackage Twenty_Seventeen
  * @since 1.0
  * @version 1.0
- */
 
+
+
+pageBanner(
+	array(
+		'title' => '',
+		'subtitle' => '',
+		'photo' => ''
+	));
+	 */
 ?>
+
+
 <div class="custom-header">
 
 		<div class="custom-header-media">

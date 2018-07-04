@@ -36,7 +36,7 @@ function pageBanner($args = NULL){
     <div class="page-banner">
         <div class="page-banner__bg-image" style="background-image: url(<?php echo $args['photo']; ?>);"></div>
         <div class="page-banner__content row">
-            <h1 class="heading-2 white moveinleft"><?php echo $args['title']; ?></h1>
+            <h1 class="site-title heading-2 white moveinleft"><?php echo $args['title']; ?></h1>
         </div>  
     </div>
   <?php
