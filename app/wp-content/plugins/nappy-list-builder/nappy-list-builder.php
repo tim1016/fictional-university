@@ -24,10 +24,13 @@
 
 /*
     
-	1. HOOKS
+    1. HOOKS
+1.1 registers all our shortcodes upon init    
 	
 	2. SHORTCODES
-		
+ 2.1 slb_register_shortcodes()
+ 2.1 slb_form_shortcode()		
+
 	3. FILTERS
 		
 	4. EXTERNAL SCRIPTS
@@ -48,10 +51,20 @@
 
 
 // 1. HOOKS
+// 1.1 registers all short codes upon init event
+add_action( 'init', 'slb_register_shortcodes');
+
 	
 // 2. SHORTCODES
+// 2.1 slb_register_shortcodes()
+//regsiters our custom shortcodes
+function slb_register_shortcodes(){
+    add_shortcode( 'slb_form', 'slb_form_shortcode' );
+}
 
-function slb_form($args, $content=""){
+// 2.2 slb_form_shortcode()
+// returns HTML string for an email capture form
+function slb_form_shortcode($args, $content=""){
     // content will be the content which the shortcode is wrapped around
     $output = ' 
     <div class="slb">
@@ -68,7 +81,9 @@ function slb_form($args, $content=""){
                 <input type="email" name="slb_email" id="" placeholder="you@email.com">
             </p>';
 
-            
+            if(strlen($content)){
+                $output .=  '<div class="slb-content">' .   wpautop($content) . '</div>';
+            }
 
             $output .= '<p class="slb-input-container">
                 <input type="submit" name="slb_submit" value="Sign me up">
