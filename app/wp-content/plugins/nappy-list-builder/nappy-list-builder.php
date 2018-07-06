@@ -35,7 +35,7 @@
 		
 	4. EXTERNAL SCRIPTS
 		
-	5. ACTIONS		
+	5. ACTIONS		    
 		
 	6. HELPERS
 		
@@ -53,7 +53,10 @@
 // 1. HOOKS
 // 1.1 registers all short codes upon init event
 add_action( 'init', 'slb_register_shortcodes');
-
+// 1.2 registers custom admin column headers
+add_filter('manage_edit-slb_subscriber_columns', 'slb_subscriber_column_headers');
+//1.3 register custom admin column data
+add_filter('manage_slb_subscriber_posts_column_data', 'slb_column_data',1,2);
 	
 // 2. SHORTCODES
 // 2.1 slb_register_shortcodes()
@@ -95,6 +98,35 @@ function slb_form_shortcode($args, $content=""){
 }
 		
 // 3. FILTERS
+//3.1
+ function slb_subscriber_column_headers(){
+    $columns = array(
+        'cb' => '<input type="checkbox" />',
+        'title' => __('Subscriber Name'),
+        'email' => __('Email Address'),
+    );
+    return $columns;
+}
+// 
+function slb_subscriber_column_data($column, $post_id){
+
+    $output='';
+    switch($column){
+        case 'title':
+        $fname = get_field('slb_fname', $post_id);
+        $lname = get_field('slb_lname', $post_id);
+        $output .= $fname . ' ' . $lname;
+        break;
+        case 'email':
+        $email = get_field('slb_email', $post_id);
+        $output .= $email;
+        break;
+    }
+    echo $output;
+
+}
+
+
 		
 // 4. EXTERNAL SCRIPTS
 		
