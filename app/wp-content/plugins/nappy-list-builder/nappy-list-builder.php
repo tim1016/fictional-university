@@ -71,7 +71,8 @@ add_filter('manage_slb_subscriber_posts_custom_column', 'slb_subscriber_column_d
 add_filter('manage_slb_list_posts_custom_column', 'slb_list_column_data',1,2);
 add_action('admin_head-edit.php', 'slb_register_custom_admin_titles');
 
-//1.4 Register AJAX actions
+//1.4 
+//Register AJAX actions
 add_action('wp_ajax_nopriv_slb_save_subscription', 'slb_save_subscription'); //regular web visitor
 add_action('wp_ajax_slb_save_subscription', 'slb_save_subscription'); // Admin user
 
@@ -158,6 +159,34 @@ function slb_form_shortcode($args, $content=""){
     return $columns;
 }
 // 3.2
+/*
+function slb_subscriber_column_data( $column, $post_id ) {
+	
+	// setup our return text
+	$output = '';
+	
+	switch( $column ) {
+		
+		case 'name':
+			// get the custom name data
+			$fname = get_field('slb_fname', $post_id );
+			$lname = get_field('slb_lname', $post_id );
+			$output .= $fname .' '. $lname;
+			break;
+		case 'email':
+			// get the custom email data
+			$email = get_field('slb_email', $post_id );
+			$output .= $email;
+			break;
+		
+	}
+	
+	// echo the output
+	echo $output;
+	
+}
+*/
+
 function slb_subscriber_column_data($column, $post_id){
 
     $output='';
@@ -190,6 +219,7 @@ function slb_subscriber_column_data($column, $post_id){
     }
     echo $output;
 }
+
 //3.2.2
 function slb_register_custom_admin_titles(){
     add_filter(
@@ -251,6 +281,98 @@ function slb_list_column_data($column, $post_id){
 
 
 // 5.1 Saves subscription data to an existing or a new subscriber
+function slb_save_subscription() {
+	
+	// setup default result data
+	$result = array(
+		'status' => 0,
+		'message' => 'Subscription was not saved. ',
+		'error'=>'',
+		'errors'=>array()
+	);
+	
+	try {
+		
+		// get list_id
+		$list_id = (int)$_POST['slb_list'];
+	
+		// prepare subscriber data
+		$subscriber_data = array(
+			'fname'=> esc_attr( $_POST['slb_fname'] ),
+			'lname'=> esc_attr( $_POST['slb_lname'] ),
+			'email'=> esc_attr( $_POST['slb_email'] ),
+		);
+		
+		// setup our errors array
+		$errors = array();
+		
+		// form validation
+		if( !strlen( $subscriber_data['fname'] ) ) $errors['fname'] = 'First name is required.';
+		if( !strlen( $subscriber_data['email'] ) ) $errors['email'] = 'Email address is required.';
+		if( strlen( $subscriber_data['email'] ) && !is_email( $subscriber_data['email'] ) ) $errors['email'] = 'Email address must be valid.';
+		
+		// IF there are errors
+		if( count($errors) ):
+		
+			// append errors to result structure for later use
+			$result['error'] = 'Some fields are still required. ';
+			$result['errors'] = $errors;
+		
+		else: 
+		// IF there are no errors, proceed...
+		
+			// attempt to create/save subscriber
+			$subscriber_id = slb_save_subscriber( $subscriber_data );
+			
+			// IF subscriber was saved successfully $subscriber_id will be greater than 0
+			if( $subscriber_id ):
+			
+				// IF subscriber already has this subscription
+				if( slb_subscriber_has_subscription( $subscriber_id, $list_id ) ):
+				
+					// get list object
+					$list = get_post( $list_id );
+					
+					// return detailed error
+					$result['error'] = esc_attr( $subscriber_data['email'] .' is already subscribed to '. $list->post_title .'.');
+					
+				else: 
+				
+					// save new subscription
+					$subscription_saved = slb_add_subscription( $subscriber_id, $list_id );
+			
+					// IF subscription was saved successfully
+					if( $subscription_saved ):
+					
+						// subscription saved!
+						$result['status']=1;
+						$result['message']='Subscription saved';
+						
+					else: 
+					
+						// return detailed error
+						$result['error'] = 'Unable to save subscription.';
+					
+					
+					endif;
+				
+				endif;
+			
+			endif;
+		
+		endif;
+		
+	} catch ( Exception $e ) {
+		
+	}
+	
+	// return result as json
+	slb_return_json($result);
+	
+}
+
+
+/*
 function slb_save_subscription(){
     $result = array(
         'status' => 0,
@@ -298,7 +420,7 @@ function slb_save_subscription(){
 }		
 
 
-
+*/
 
 //5.2 
 function slb_save_subscriber($subscriber_data){
@@ -313,9 +435,12 @@ function slb_save_subscriber($subscriber_data){
                 'post_status' => 'publish'
             ), true );
         endif;
+
         update_field(slb_get_acf_key('slb_fname'), $subscriber_data['fname'], $subscriber_id);
         update_field(slb_get_acf_key('slb_lname'), $subscriber_data['lname'], $subscriber_id);
         update_field(slb_get_acf_key('slb_email'), $subscriber_data['email'], $subscriber_id);
+
+
     }
     catch( Exception $e){
     }
@@ -419,12 +544,27 @@ function slb_return_json( $php_array){
 //6.5 Get the unique ACF Field key 
 
 function slb_get_acf_key($field_name){
-    
-    $field = get_field_object($field_name);
-    $key = $field['key'];
-    return $key;
-
-
+	
+	$field_key = $field_name;
+	
+	switch( $field_name ) {
+		
+		case 'slb_fname':
+			$field_key = 'field_5b3f9583f9452';
+			break;
+		case 'slb_lname':
+			$field_key = 'field_5b3f95d7f9454';
+			break;
+		case 'slb_email':
+			$field_key = 'field_5b3f997f5f438';
+			break;
+		case 'slb_subscriptions':
+			$field_key = 'field_5b3f9acef74b6';
+			break;
+		
+	}
+	
+	return $field_key;
 }
 
 //6.6 Get subscriber data
