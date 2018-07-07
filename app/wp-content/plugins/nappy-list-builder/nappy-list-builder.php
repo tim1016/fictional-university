@@ -109,7 +109,13 @@ function slb_form_shortcode($args, $content=""){
             <p class="slb-input-container">
                 <label for="">Email</label> <br>
                 <input type="email" name="slb_email" id="" placeholder="you@email.com">
-            </p>';
+            </p>
+            <p class="slb-input-container">
+                <label for="">Phone</label> <br>
+                <input type="text" name="slb_addphone" id="" placeholder="1233333333">
+            </p>
+            
+            ';
 
             if(strlen($content)){
                 $output .=  '<div class="slb-content">' .   wpautop($content) . '</div>';
@@ -119,20 +125,20 @@ function slb_form_shortcode($args, $content=""){
 
             <p class="slb-input-container">
                 <label for="">Address</label> <br> 
-                <input type="text" name="addline1" id="" placeholder="Line 1">
-                <input type="text" name="addline2" id="" placeholder="Line 2">
+                <input type="text" name="slb_addline1" id="" placeholder="Line 1">
+                <input type="text" name="slb_addline2" id="" placeholder="Line 2">
             </p>
 
 
             <p class="slb-input-container">
                 <label for="">City</label> 
-                <input type="text" name="addcity" id="" placeholder="City">
+                <input type="text" name="slb_addcity" id="" placeholder="City">
             
                 <label for="">State</label>
-                <input type="text" name="addstate" id="" placeholder="State">
+                <input type="text" name="slb_addstate" id="" placeholder="State">
 
                 <label for="">Zip</label> 
-                <input type="text" name="addzip" id="" placeholder="Zipcode">
+                <input type="text" name="slb_addzip" id="" placeholder="Zipcode">
             </p>
             ';
 
@@ -202,19 +208,19 @@ function slb_subscriber_column_data($column, $post_id){
             $output .= $email;
             break;
         case 'address':
-            $address .= get_field('addline_1', $post_id);
+            $address .= get_field('slb_addline1', $post_id);
             $address .= ', ';
-            $address .= get_field('addline_2', $post_id);
+            $address .= get_field('slb_addline2', $post_id);
             $address .= ', ';
-            $address .= get_field('addcity', $post_id);
+            $address .= get_field('slb_addcity', $post_id);
             $address .= ' ';
-            $address .= get_field('addstate', $post_id);
+            $address .= get_field('slb_addstate', $post_id);
             $address .= ' ';
-            $address .= get_field('addzip', $post_id);
+            $address .= get_field('slb_addzip', $post_id);
             $output .= $address;
             break;
         case 'phone':
-            $output .= get_field('addphone', $post_id);
+            $output .= get_field('slb_addphone', $post_id);
             break;
     }
     echo $output;
@@ -300,7 +306,13 @@ function slb_save_subscription() {
 		$subscriber_data = array(
 			'fname'=> esc_attr( $_POST['slb_fname'] ),
 			'lname'=> esc_attr( $_POST['slb_lname'] ),
-			'email'=> esc_attr( $_POST['slb_email'] ),
+            'email'=> esc_attr( $_POST['slb_email'] ),
+            'slb_addline1'=> esc_attr( $_POST['slb_addline1'] ),
+            'slb_addline2'=> esc_attr( $_POST['slb_addline2'] ),
+            'slb_addcity'=> esc_attr( $_POST['slb_addcity'] ),
+            'slb_addstate'=> esc_attr( $_POST['slb_addstate'] ),
+            'slb_addzip'=> esc_attr( $_POST['slb_addzip'] ),
+            'slb_addphone'=> esc_attr( $_POST['slb_addphone'] ),
 		);
 		
 		// setup our errors array
@@ -439,10 +451,16 @@ function slb_save_subscriber($subscriber_data){
         update_field(slb_get_acf_key('slb_fname'), $subscriber_data['fname'], $subscriber_id);
         update_field(slb_get_acf_key('slb_lname'), $subscriber_data['lname'], $subscriber_id);
         update_field(slb_get_acf_key('slb_email'), $subscriber_data['email'], $subscriber_id);
-
+        update_field(slb_get_acf_key('slb_addline1'), $subscriber_data['slb_addline1'], $subscriber_id);
+        update_field(slb_get_acf_key('slb_addline2'), $subscriber_data['slb_addline2'], $subscriber_id);
+        update_field(slb_get_acf_key('slb_addcity'), $subscriber_data['slb_addcity'], $subscriber_id);
+        update_field(slb_get_acf_key('slb_addstate'), $subscriber_data['slb_addstate'], $subscriber_id);
+        update_field(slb_get_acf_key('slb_addzip'), $subscriber_data['slb_addzip'], $subscriber_id);
+        update_field(slb_get_acf_key('slb_addphone'), $subscriber_data['slb_addphone'], $subscriber_id);
 
     }
     catch( Exception $e){
+        echo $e;
     }
     wp_reset_query();
     return $subscriber_id;
@@ -494,7 +512,7 @@ function slb_get_subscriber_id($email){
                 'meta_key' => 'slb_email',
                 'meta_query' => array(
                     array(
-                        'key' => 'slb_email',
+                    'key' => 'slb_email',
                     'value' => $email,
                     'compare' => '='
                     ),                    
@@ -560,8 +578,25 @@ function slb_get_acf_key($field_name){
 			break;
 		case 'slb_subscriptions':
 			$field_key = 'field_5b3f9acef74b6';
-			break;
-		
+            break;
+        case 'slb_addline1':
+			$field_key = 'field_5b3ff88cd7313';
+            break;      
+        case 'slb_addline2':
+			$field_key = 'field_5b3ff8bcd7314';
+            break; 
+        case 'slb_addcity':
+			$field_key = 'field_5b3ff8c6d7315';
+			break;                                 
+        case 'slb_addstate':
+			$field_key = 'field_5b3ff8bcd7316';
+            break;                                 
+        case 'slb_addzip':
+			$field_key = 'field_5b3ff8bcd7317';
+            break;                                 
+        case 'slb_addphone':
+			$field_key = 'field_5b40014b4fa9b';
+			break;                                 
 	}
 	
 	return $field_key;
@@ -579,7 +614,13 @@ function get_subscriber_data($subscriber_id){
             'fname'=>get_field(slb_get_acf_key('slb_fname'), $subscriber_id),
             'lname'=>get_field(slb_get_acf_key('slb_lname'), $subscriber_id),
             'email'=>get_field(slb_get_acf_key('slb_email'), $subscriber_id),
-            'subscriptions'=>slb_get_subscriptions($subscriber_id)
+            'slb_subscriptions'=>slb_get_subscriptions($subscriber_id),
+            'addline1'=>get_field(slb_get_acf_key('slb_addline1'), $subscriber_id),
+            'addline2'=>get_field(slb_get_acf_key('slb_addline2'), $subscriber_id),
+            'addcity'=>get_field(slb_get_acf_key('slb_addcity'), $subscriber_id),
+            'addstate'=>get_field(slb_get_acf_key('slb_addstate'), $subscriber_id),
+            'addzip'=>get_field(slb_get_acf_key('slb_addzip'), $subscriber_id),
+            'addphone'=>get_field(slb_get_acf_key('slb_addphone'), $subscriber_id),
         );
     endif;
 
