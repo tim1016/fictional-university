@@ -61,7 +61,7 @@
 
 
 // 1. HOOKS
-// 1.1 registers all short codes upon init event
+// 1.1 registers all short codes upon init event    
 add_action( 'init', 'slb_register_shortcodes');
 // 1.2 registers custom admin column headers
 add_filter('manage_edit-slb_subscriber_columns', 'slb_subscriber_column_headers');
@@ -75,7 +75,22 @@ add_action('admin_head-edit.php', 'slb_register_custom_admin_titles');
 //Register AJAX actions
 add_action('wp_ajax_nopriv_slb_save_subscription', 'slb_save_subscription'); //regular web visitor
 add_action('wp_ajax_slb_save_subscription', 'slb_save_subscription'); // Admin user
+//1.5 Load external scripts
+add_action( 'wp_enqueue_scripts', 'slb_public_scripts');
+//1.6 Advanced custom fields settings
+add_filter( 'acf/settings/path', 'slb_acf_settings_path');
+add_filter( 'acf/settings/dir', 'slb_acf_settings_dir');
+add_filter( 'acf/settings/show_admin', 'slb_acf_show_admin');
+if(!defined('ACF_LITE')) define('ACF_LITE',true);
 
+//1.7  Register admin menus
+add_action('admin_menu', 'slb_admin_menus');
+
+// 1.8
+add_action( 'admin_enqueue_scripts', 'slb_admin_scripts');
+
+//1.9
+add_action('admin_init', 'slb_register_options');
 	
 // 2. SHORTCODES
 // 2.1 slb_register_shortcodes()
@@ -90,6 +105,8 @@ function slb_form_shortcode($args, $content=""){
     //get the list id
     $list_id=0;
     if(isset($args['id'])) $list_id = (int) $args['id'];
+    $title='';
+    if(isset($args['title'])) $title = (string) $args['title'];
 
 
     // content will be the content which the shortcode is wrapped around
@@ -98,8 +115,14 @@ function slb_form_shortcode($args, $content=""){
         <form action="/wp-admin/admin-ajax.php?action=slb_save_subscription" 
         method="POST" id="slb_form" class="slb-form">
 
-            <input type="hidden" name="slb_list" value="'. $list_id .'">
-            <p class="slb-input-container">
+            <input type="hidden" name="slb_list" value="'. $list_id .'">';
+
+            if(strlen($title)){
+                $output .= '<h3 class="slb-title">' . $title . '</h3>';
+            }
+
+            $output .=
+            '<p class="slb-input-container">
                 <label for="">Your Name</label> <br>
                 <input type="text" name="slb_fname" id="" placeholder="First Name">
                 <input type="text" name="slb_lname" id="" placeholder="Last Name">
@@ -225,7 +248,32 @@ function slb_subscriber_column_data($column, $post_id){
     }
     echo $output;
 }
+function slb_admin_menus() {
+	
+	/* main menu */
+	
+		$top_menu_item = 'slb_dashboard_admin_page';
+	    
+	    add_menu_page( '', 'List Builder', 'manage_options', 'slb_dashboard_admin_page', 'slb_dashboard_admin_page', 'dashicons-email-alt' );
+    
+    /* submenu items */
+    
+	    // dashboard
+	    add_submenu_page( $top_menu_item, '', 'Dashboard', 'manage_options', $top_menu_item, $top_menu_item );
+	    
+	    // email lists
+	    add_submenu_page( $top_menu_item, '', 'Email Lists', 'manage_options', 'edit.php?post_type=slb_list' );
+	    
+	    // subscribers
+	    add_submenu_page( $top_menu_item, '', 'Subscribers', 'manage_options', 'edit.php?post_type=slb_subscriber' );
+	    
+	    // import subscribers
+	    add_submenu_page( $top_menu_item, '', 'Import Subscribers', 'manage_options', 'slb_import_admin_page', 'slb_import_admin_page' );
+	    
+	    // plugin options
+	    add_submenu_page( $top_menu_item, '', 'Plugin Options', 'manage_options', 'slb_options_admin_page', 'slb_options_admin_page' );
 
+}
 //3.2.2
 function slb_register_custom_admin_titles(){
     add_filter(
@@ -280,6 +328,23 @@ function slb_list_column_data($column, $post_id){
 }
 		
 // 4. EXTERNAL SCRIPTS
+// 4.1 Include ACF
+include_once( plugin_dir_path( __FILE__ ) . 'lib/advanced-custom-fields/acf.php');
+
+//4.2 Include styles and scripts
+function slb_public_scripts(){
+    wp_register_script( 'nappy-list-builder-js-public', plugins_url('/js/public/nappy-list-builder.js', __FILE__), array('jquery'), '', true);
+
+    wp_register_style( 'nappy-list-builder-css-public', plugins_url('/css/public/nappy-list-builder.css', __FILE__));
+    wp_enqueue_script('nappy-list-builder-js-public');
+    wp_enqueue_style('nappy-list-builder-css-public');
+}   
+
+//4.3 Admin scripts to fix the menu closing problem with the wordpress dashboard
+function slb_admin_scripts(){
+    wp_register_script( 'nappy-list-builder-js-private', plugins_url( '/js/private/nappy-list-builder.js', __FILE__ ), array('jquery'), '', true);
+    wp_enqueue_script( 'nappy-list-builder-js-private');
+}
 		
 // 5. ACTIONS
 
@@ -384,55 +449,6 @@ function slb_save_subscription() {
 }
 
 
-/*
-function slb_save_subscription(){
-    $result = array(
-        'status' => 0,
-        'message' => 'Subscription was not saved'
-    );
-
-    $errors=array();
-
-    try{
-        $list_id = (int) $_POST['slb_list'];
-
-        // Prepare subscriber data
-        $subscriber_data = array(
-            'fname' => esc_attr( $_POST['slb_fname'] ),
-            'lname' => esc_attr( $_POST['slb_lname'] ),
-            'email' => esc_attr( $_POST['slb_email'] ),
-            'addline1' => esc_attr( $_POST['addline1'] ),
-            'addline2' => esc_attr( $_POST['addline2'] ),
-            'addcity' => esc_attr( $_POST['addcity'] ),
-            'addstate' => esc_attr( $_POST['addstate'] ),
-            'addzip' => esc_attr( $_POST['addzip'] )
-        );
-
-        $subscriber_id = slb_save_subscriber($subscriber_data);
-
-        if($subscriber_id):
-            if(slb_subscriber_has_subscription($subscriber_id, $list_id)):
-                $list = get_post($list_id);
-                $result['message'] .= esc_attr( $subscriber_data['email'] . ' is already subscribed to ' .                 $list->post_title . '.' );
-            else:
-                $subscription_saved = slb_add_subscription($subscriber_id, $list_id);
-
-                if($subscription_saved):                     
-                    $result['status'] =1;
-                    $result['message'] = 'Subscriber information was saved successfully';
-                endif;
-            endif;
-        endif;
-    } 
-    catch(Exception $e){
-        $result['message'] = 'Caught exception: ' . $e->getMessage();
-    }
-
-    slb_return_json($result);
-}		
-
-
-*/
 
 //5.2 
 function slb_save_subscriber($subscriber_data){
@@ -626,12 +642,278 @@ function get_subscriber_data($subscriber_id){
 
     return $subscriber_data;
 }
+// 6.7
+function slb_get_page_select( $input_name="slb_apge", $input_id="", $parent=-1, $value_field="id", $selected_value=""){
+    $pages = get_pages(
+        array(
+            'sort_order' => 'asc',
+            'sort_column' => 'post_title',
+            'post_type' => 'page',
+            'parent' => $parent,
+            'status' => array('draft', 'publish')
+        )
+    );
+
+    $select = '<select name="' . $input_name . '" ';
+    if(strlen($input_id)){
+        $select .= 'id="' . $input_id . '" ';
+    }
+    $select .= '><option value="">--Select One--</option>';
+
+    foreach ($pages as &$page){
+        $value = $page->ID;
+        switch( $value_field ){
+            case 'slug':
+            $value = $page->post_name;
+            break;
+
+            case 'url':
+            $value = get_page_link( $page->ID );
+            break;
+
+            default:
+            $value = $page->ID;
+        }
+
+        $selected='';
+        if($selected_value==$value)  $selected = ' selected="selected"';
+
+        $option = '<option value="' . $value . '" ' . $selected .'>';
+        $option .= $page->post_title;
+        $option .= '</option>';
+
+        $select .= $option;
+    }
+
+    $select .= '</select>';
+    return $select;
+}
+
+// 6.8
+// hint: returns default option values as an associative array
+function slb_get_default_options() {
+	
+	$defaults = array();
+	
+	try {
+		
+		// get front page id
+		$front_page_id = get_option('page_on_front');
+	
+		// setup default email footer
+		$default_email_footer = '
+			<p>
+				Sincerely, <br /><br />
+				The '. get_bloginfo('name') .' Team<br />
+				<a href="'. get_bloginfo('url') .'">'. get_bloginfo('url') .'</a>
+			</p>
+		';
+		
+		// setup defaults array
+		$defaults = array(
+			'slb_manage_subscription_page_id'=>$front_page_id,
+			'slb_confirmation_page_id'=>$front_page_id,
+			'slb_reward_page_id'=>$front_page_id,
+			'slb_default_email_footer'=>$default_email_footer,
+			'slb_download_limit'=>3,
+		);
+	
+	} catch( Exception $e) {
+		
+		// php error
+		
+	}	
+	// return defaults
+	return $defaults;	
+}
+
+
+
+//6.9
+function slb_get_option($option_name){
+    $option_value='';
+
+    try{
+        $defaults=slb_get_default_options();
+
+        switch ($option_name){
+            
+            case 'slb_manage_subscription_page_id':
+            //subscription page id
+            $option_value = (get_option('slb_manage_subscription_page_id')) ? get_option('slb_manage_subscription_page_id') : $defaults['slb_manage_subscription_page_id'];
+            break;
+
+            
+            case 'slb_confirmation_page_id':
+            //confirmation page id
+            $option_value = (get_option('slb_confirmation_page_id')) ? get_option('slb_confirmation_page_id') : $defaults['slb_confirmation_page_id'];
+            break;
+
+            
+            case 'slb_reward_page_id':
+            //reward page id
+            $option_value = (get_option('slb_reward_page_id')) ? get_option('slb_reward_page_id') : $defaults['slb_reward_page_id'];
+            break;
+
+            case 'slb_default_email_footer':
+            //default email footer
+            $option_value = (get_option('slb_default_email_footer')) ? get_option('slb_default_email_footer') : $defaults['slb_default_email_footer'];
+            break;
+
+            case 'slb_download_limit':
+            //download limit
+            $option_value = (get_option('slb_download_limit')) ? (int) get_option('slb_download_limit') : $defaults['slb_download_limit'];
+            break;
+        }
+    }
+    catch(Exception $e){
+
+    }
+    return $option_value;
+}
+
+
+//6.10
+function slb_get_current_options(){
+    $current_options = array();
+
+    try{
+        $current_options = array(
+            'slb_manage_subscription_page_id' => slb_get_option('slb_manage_subscription_page_id'),
+            'slb_confirmation_page_id' => slb_get_option('slb_confirmation_page_id'),
+            'slb_reward_page_id' => slb_get_option('slb_reward_page_id'),
+            'slb_default_email_footer' => slb_get_option('slb_default_email_footer'),
+            'slb_download_limit' => slb_get_option('slb_download_limit')
+        );
+    }
+    catch(Exception $e){
+
+    }
+    return $current_options;
+}
+
 
 		
 // 7. CUSTOM POST TYPES
+//7,1 subscribers
+include_once( plugin_dir_path( __FILE__ ) . '/cpt/slb_subscriber.php');
+include_once( plugin_dir_path( __FILE__ ) . '/cpt/slb_list.php');
 	
 // 8. ADMIN PAGES
+function slb_dashboard_admin_page(){
+    $output = '
+    <div class="wrap">
+        <?php screen_icon();?>
+        <h2>Nappy List Builder   </h2>
+        <p>The ultimate list building plugin for Wordpress. Capture new subscribers. Reward subscribers with a custom download opt-in. Build unlimited lists. Import and Export subscribers with CSV files.</p>
+    </div>
+    ';
+    echo $output;
+}
+
+function slb_import_admin_page(){
+    $output = '
+    <div class="wrap">
+        <h2>Import Subscribers</h2>
+        <p>Page description ...</p>
+    </div>
+    ';
+    echo $output;
+}
+
+
+
+function slb_options_admin_page() {
+	
+	// get the default values for our options
+	$options = slb_get_current_options();
+	
+	echo('<div class="wrap">
+		
+		<h2>Snappy List Builder Options</h2>
+		
+        <form action="options.php" method="post">');
+
+			// outputs a unique nounce for our plugin options
+			settings_fields('slb_plugin_options');
+			// generates a unique hidden field with our form handling url
+			@do_settings_fields('slb_plugin_options', '');
+
+            echo('<table class="form-table">
+			
+				<tbody>
+			
+					<tr>
+						<th scope="row"><label for="slb_manage_subscription_page_id">Manage Subscriptions Page</label></th>
+						<td>
+							'. slb_get_page_select( 'slb_manage_subscription_page_id', 'slb_manage_subscription_page_id', 0, 'id', $options['slb_manage_subscription_page_id'] ) .'
+							<p class="description" id="slb_manage_subscription_page_id-description">This is the page where Snappy List Builder will send subscribers to manage their subscriptions. <br />
+								IMPORTANT: In order to work, the page you select must contain the shortcode: <strong>[slb_manage_subscriptions]</strong>.</p>
+						</td>
+					</tr>
+					
+			
+					<tr>
+						<th scope="row"><label for="slb_confirmation_page_id">Opt-In Page</label></th>
+						<td>
+							'. slb_get_page_select( 'slb_confirmation_page_id', 'slb_confirmation_page_id', 0, 'id', $options['slb_confirmation_page_id'] ) .'
+							<p class="description" id="slb_confirmation_page_id-description">This is the page where Snappy List Builder will send subscribers to confirm their subscriptions. <br />
+								IMPORTANT: In order to work, the page you select must contain the shortcode: <strong>[slb_confirm_subscription]</strong>.</p>
+						</td>
+					</tr>
+					
+			
+					<tr>
+						<th scope="row"><label for="slb_reward_page_id">Download Reward Page</label></th>
+						<td>
+							'. slb_get_page_select( 'slb_reward_page_id', 'slb_reward_page_id', 0, 'id', $options['slb_reward_page_id'] ) .'
+							<p class="description" id="slb_reward_page_id-description">This is the page where Snappy List Builder will send subscribers to retrieve their reward downloads. <br />
+								IMPORTANT: In order to work, the page you select must contain the shortcode: <strong>[slb_download_reward]</strong>.</p>
+						</td>
+					</tr>
+			
+					<tr>
+						<th scope="row"><label for="slb_default_email_footer">Email Footer</label></th>
+						<td>');
+						
+							
+							// wp_editor will act funny if it's stored in a string so we run it like this...
+							wp_editor( $options['slb_default_email_footer'], 'slb_default_email_footer', array( 'textarea_rows'=>8 ) );
+							
+							
+							echo('<p class="description" id="slb_default_email_footer-description">The default text that appears at the end of emails generated by this plugin.</p>
+						</td>
+					</tr>
+			
+					<tr>
+						<th scope="row"><label for="slb_download_limit">Reward Download Limit</label></th>
+						<td>
+							<input type="number" name="slb_download_limit" value="'. $options['slb_download_limit'] .'" class="" />
+							<p class="description" id="slb_download_limit-description">The amount of downloads a reward link will allow before expiring.</p>
+						</td>
+					</tr>
+			
+				</tbody>
+				
+			</table>');
+		
+			// outputs the WP submit button html
+			@submit_button();
+		
+		
+		echo('</form>
+	
+	</div>');
+	
+}
+
 	
 // 9. SETTINGS
-		
+function slb_register_options(){
+    register_setting('slb_plugin_options', 'slb_manage_subscription_page_id');
+    register_setting('slb_plugin_options', 'slb_confirmation_page_id');
+    register_setting('slb_plugin_options', 'slb_reward_page_id');
+    register_setting('slb_plugin_options', 'slb_default_email_footer');
+    register_setting('slb_plugin_options', 'slb_download_limit');
+}
 // 10. MISC.
